@@ -1,246 +1,338 @@
 --[[
-    (BEFORE YOU READ THE REST, I WANTED TO TELL YOU THAT JESUS LOVES YOU)
-    EasyLua is a script made to help new roblox exploiters, providing them with functions like DownloadImage, comments that guide them through the script.
-
-    How to use this script?
-
-    local API = loadstring(game:HttpGet(ScriptUrl))()
-
-    And then you can use the API's functions like you see them.
-    Made by ballsman3761 on discord.
+    EasyLua V2 (Remake)
+    only works on
+     • Synapse X
+     • Script-Ware
+     • KRNL
+     • Fluxus
+    Only Advanced Exec ETC...
+    (note: unfortunately this script won't work on delta/free mobile executors)
+    also check out the original code: https://scriptblox.com/script/Universal-Script-EasyLua-V1-29655
 ]]
 
---* Services
-
 local HttpService = game:GetService("HttpService")
+local Players = game:GetService("Players")
 
---^ Variables (Localization for performance, because using string.find multiple times is slower than doing local v1 = string.find and using v1):
+-- Detect exploit environment & available APIs
+local detect = {}
+detect.request = (syn and syn.request) or (http and http.request) or request or http_request or fluxus and fluxus.request or nil
+detect.file = {}
+do
+    detect.file.writefile = type(writefile) == "function"
+    detect.file.readfile = type(readfile) == "function"
+    detect.file.isfile   = type(isfile) == "function"
+    detect.file.delfile  = type(delfile) == "function"
+    detect.file.appendfile = type(appendfile) == "function"
+    detect.file.makefolder = type(makefolder) == "function"
+    detect.file.isfolder   = type(isfolder) == "function"
+    detect.file.delfolder  = type(delfolder) == "function"
+end
 
-local string, table, task, Instance, game, debug = string, table, task, Instance, workspace.Parent, debug
-
-local find, gsub, sub, rep, format, match, gmatch, split, byte, char, lower, upper = string.find, string.gsub, string.sub, string.rep, string.format, string.match, string.gmatch, string.split, string.byte, string.char, string.lower, string.upper
-local tfind, tinsert, tconcat, tunpack, tclear = table.find, table.insert, table.concat, table.unpack, table.clear
-
-local Instance_new = Instance.new
-
-local UDim2_fromOffset = UDim2.fromOffset
-local deg, sqrt, atan2, random, clamp, min, max = math.deg, math.sqrt, math.atan2, math.random, math.clamp, math.min, math.max
-
---& Lua(u) Globals
-
-local pcall, next, tostring, tonumber, assert, typeof, tick, setfenv, getfenv, getmetatable, setmetatable, error, newproxy = pcall, next, tostring, tonumber, assert, typeof, tick, setfenv, getfenv, getmetatable, setmetatable, error, newproxy
-local wait, spawn, delay = task.wait, task.spawn, task.delay
-
-local API = {
-    Version = "1.0.1"
+-- Main API table
+local EasyLua = {
+    Version = "2.0.0",
+    Env = {
+        Request = detect.request,
+        FileAPIs = detect.file
+    }
 }
 
-local Request = (syn and syn.request or fluxus and fluxus.request or http and http.request or request or function(Args) -- HTTP Request function for low level executors.
-        -- Args: {Url: string, Method: string, Headers: table | nil, Body: string | nil}
-        Args = Args or {};
-        local Url, Method, Headers, Body = Args.Url, Args.Method, Args.Headers, Args.Body
+-- Internal helper: safe request
+function EasyLua:_SafeRequest(opts)
+    -- opts: {Url, Method, Headers?, Body?}
+    assert(type(opts) == "table", "Bad args to _SafeRequest")
+    assert(opts.Url and type(opts.Url)=="string", "Missing Url")
+    assert(opts.Method and type(opts.Method)=="string", "Missing Method")
 
-        --! Assertions
-        assert(Url, "Missing request url.")
-        assert(Method, "Missing request method.")
-
-        --* Main Function
-
-        local Content = {}
-
-        HttpService:RequestInternal({
-            Url = Url,
-            Method = Method,
-            Headers = Headers,
-            Body = Body
-        }):Start(function(Success, Returned)
-            Content = Returned
-            Content.Success = Success
-        end)
-
-        repeat
-            wait()
-        until
-            Content.Success ~= nil
-
-        return Content;
-    end)
-
-function API:DownloadImage(Url, SaveAs) -- Url is the image you want to download, for example, https://cdn.discordapp.com/avatars/..., SaveAs is the file you want to save it as.
-    assert(typeof(Url) == "string", "Invalid argument #1 to DownloadImage, string expected got \"" .. tostring(Url) .. "\"")
-    assert(typeof(SaveAs) == "string", "Invalid argument #2 to DownloadImage, string expected got \"" .. tostring(SaveAs) .. "\"")
-
-    writefile(SaveAs, Request({
-        Url = Url,
-        Method = "GET"
-    }).Body) -- Basically, this makes a file with the name being SaveAs's value, And the content being the content of the url given.
-
-    return SaveAs -- Returns the path of the image. (SaveAs)
-end
-
-function API:GetImage(Type, Data)
-    --[[
-        When Type is Url, it will send a GET request to the second parameter and use the content of it,
-        When Type is File, it will read the file and use it's content.
-
-        Extra Note:
-
-        I believe the only supported image types as of 18th of february 2025 are .png, .jpg, .ico is unsupported, i don't know about the rest.
-    ]]
-
-    assert(typeof(Type) == "string", "Invalid argument #1 to GetImage, string expected got " .. tostring(Type))
-    assert(typeof(Data) == "string", "Invalid argument #2 to GetImage, string expected got " .. tostring(Data))
-
-    local File;
-    local temp_file_name = HttpService:GenerateGUID(false)
-    local use_files = lower(Type) ~= "url"
-
-    File = not use_files and API:DownloadImage(Data, temp_file_name) or Data
-
-    assert(isfile(File), "No file with the path \"" .. File .. "\" found.")
-
-    if not use_files then
-        delay(3, function()
-            delfile(temp_file_name) -- Delete the file we just created because it's still cached and we can use the image, deleting it gives the user less storage usage & less flooding of their workspace folder.
-        end)
+    local req = self.Env.Request
+    if not req then
+        error("No HTTP request function available in this executor.")
     end
 
-    return getcustomasset(File)
+    local ok, result = pcall(req, {
+        Url = opts.Url,
+        Method = opts.Method,
+        Headers = opts.Headers,
+        Body = opts.Body
+    })
+    if not ok then
+        return nil, result
+    end
+    return result
 end
 
-function API:CreateBridge(Handler)
-    --[[
-        Okay, this is a little complex for new scripters so i'll try my best to explain it:
+-- HTTP Helpers
 
-        This function creates a bridge, basically something you can GET and POST data from & to, How it works is:
+-- Sends a GET request, returns body or nil, error
+function EasyLua:GetPageContent(url)
+    local res, err = self:_SafeRequest({Url = url, Method = "GET"})
+    if not res then return nil, err end
+    return res.Body
+end
 
-        local Bridge = API:CreateBridge(function(Path, ...) print("Bridge received request, path:",Path,"extra arguments:",...) end)
+-- Sends a GET request and parses JSON
+function EasyLua:GetJSON(url)
+    local body, err = self:GetPageContent(url)
+    if not body then return nil, err end
+    local ok, data = pcall(HttpService.JSONDecode, HttpService, body)
+    if not ok then
+        return nil, data  -- data is error message
+    end
+    return data
+end
 
-        This, whenever the Bridge object you created gets a sent a request, Will print what path the request was sent to, and the arguments it had.
+-- POST JSON data
+function EasyLua:PostJSON(url, tbl, headers)
+    local headers = headers or {}
+    headers["Content-Type"] = "application/json"
+    local body = HttpService:JSONEncode(tbl)
+    local res, err = self:_SafeRequest({
+        Url = url,
+        Method = "POST",
+        Headers = headers,
+        Body = body
+    })
+    if not res then return nil, err end
+    -- Try to decode response body
+    local ok, data = pcall(HttpService.JSONDecode, HttpService, res.Body)
+    return ok and data or res.Body
+end
 
-        This can be useful for creating memory efficent scripts, like:
+-- Webhook helper (send message to webhook)
+function EasyLua:SendWebhook(webhookUrl, content)
+    assert(type(webhookUrl)=="string", "Webhook URL must be string")
+    assert(type(content)=="string", "Webhook content must be string")
+    return self:PostJSON(webhookUrl, { content = content })
+end
 
-        local Bridge = API:CreateBridge(...)
+-- File Helpers (exploit only)
 
-        game.Players.PlayerAdded:Connect(function(plr)
-            Bridge:Post("/main", {
-                Event = "PlayerAdded",
-                Player = plr
-            })
-        end)
+function EasyLua:WriteFile(path, content)
+    assert(self.Env.FileAPIs.writefile, "writefile not supported")
+    writefile(path, content)
+end
 
-        This can be used for fancy transferring of data across your script, and pretty cool to use.
+function EasyLua:ReadFile(path)
+    assert(self.Env.FileAPIs.readfile, "readfile not supported")
+    return readfile(path)
+end
 
-        To stop the bridge, You're given a key to protect other functions from disabling the bridge, You're given a 128 character long key, and only that key can be used to stop the bridge,
+function EasyLua:IsFile(path)
+    return (self.Env.FileAPIs.isfile and isfile(path)) or false
+end
 
-        Syntax:
+function EasyLua:DeleteFile(path)
+    assert(self.Env.FileAPIs.delfile, "delfile not supported")
+    delfile(path)
+end
 
-        local Bridge, Key = ...
-        Bridge:Stop(Key)
+function EasyLua:AppendFile(path, content)
+    assert(self.Env.FileAPIs.appendfile, "appendfile not supported")
+    appendfile(path, content)
+end
 
-        If you do:
+function EasyLua:MakeFolder(path)
+    assert(self.Env.FileAPIs.makefolder, "makefolder not supported")
+    makefolder(path)
+end
 
-        Bridge:Stop("hi")
+function EasyLua:IsFolder(path)
+    return (self.Env.FileAPIs.isfolder and isfolder(path)) or false
+end
 
-        It will not work, because hi isnt equal to the Key.
-    ]]
+function EasyLua:DeleteFolder(path)
+    assert(self.Env.FileAPIs.delfolder, "delfolder not supported")
+    delfolder(path)
+end
 
-    local Generated = ""
-    local addr = match(tostring(function()end), "0x.+")
+-- Config System: saving and loading config tables (JSON)
 
-    for _ = 1, 4 do Generated = Generated .. HttpService:GenerateGUID(random(1,2) == 2) end
+function EasyLua:SaveConfig(path, tbl)
+    assert(type(path)=="string", "path must be string")
+    assert(type(tbl)=="table", "config must be table")
+    if not self.Env.FileAPIs.writefile then
+        error("File write not supported")
+    end
+    local ok, encoded = pcall(HttpService.JSONEncode, HttpService, tbl)
+    if not ok then error("Failed to encode config: ".. tostring(encoded)) end
+    writefile(path, encoded)
+end
 
-    local Object = newproxy(true)
-    
-    local Event = Instance_new("BindableEvent")
-    
-    local Connections = {}
-    local Connection;
+function EasyLua:LoadConfig(path, default)
+    assert(type(path)=="string", "path must be string")
+    default = default or {}
+    if self:IsFile(path) then
+        local content = self:ReadFile(path)
+        local ok, decoded = pcall(HttpService.JSONDecode, HttpService, content)
+        if ok then
+            return decoded
+        else
+            warn("Failed to parse config JSON, returning default. Error: ".. tostring(decoded))
+            return default
+        end
+    else
+        return default
+    end
+end
 
-    Connection = Event.Event:Connect(Handler)
+-- UI Helpers
 
-    local mt = {
-        __index = {
-            Post = function(_, ...)
-                return Event:Fire(...)
-            end,
-            Stop = function(_, ValidationKey)
-                if ValidationKey == Generated then
-                    Connection:Disconnect()
+-- Simple notification (floating text for a short time)
+function EasyLua:Notify(player, message, duration, color)
+    -- Exploit-only / GUI
+    local duration = duration or 3
+    color = color or Color3.fromRGB(255,255,255)
+    if not Players.LocalPlayer then return end
 
-                    for _, C in next, Connections do
-                        C:Disconnect()
-                    end
+    local screenGui = Instance.new("ScreenGui")
+    screenGui.Name = "EasyLuaNotification"
+    screenGui.Parent = Players.LocalPlayer:WaitForChild("PlayerGui")
 
-                    tclear(Connections)
+    local label = Instance.new("TextLabel")
+    label.Size = UDim2.new(0, 300, 0, 50)
+    label.Position = UDim2.new(0.5, -150, 0.3, 0)
+    label.BackgroundTransparency = 0.5
+    label.BackgroundColor3 = Color3.fromRGB(0,0,0)
+    label.TextColor3 = color
+    label.Text = "[EasyLua] " .. message
+    label.TextScaled = true
+    label.Parent = screenGui
+
+    task.delay(duration, function()
+        if screenGui then screenGui:Destroy()
+    end)
+
+    return label
+end
+
+-- Template Generator
+
+EasyLua.Templates = {}
+
+-- Generates a basic ESP (Name over head through walls)
+EasyLua.Templates.ESP = [[
+-- ESP Template
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local RunService = game:GetService("RunService")
+
+for _, plr in ipairs(Players:GetPlayers()) do
+    if plr ~= LocalPlayer and plr.Character then
+        local head = plr.Character:FindFirstChild("Head")
+        if head then
+            local billboard = Instance.new("BillboardGui", head)
+            billboard.Name = "EasyLuaESP"
+            billboard.Adornee = head
+            billboard.Size = UDim2.new(0,100,0,20)
+            billboard.AlwaysOnTop = true
+
+            local label = Instance.new("TextLabel", billboard)
+            label.Size = UDim2.new(1,1,1,1)
+            label.BackgroundTransparency = 1
+            label.Text = plr.Name
+            label.TextColor3 = Color3.new(1,0,0)
+            label.TextStrokeTransparency = 0
+        end
+    end
+end
+]]
+
+-- Generates a smooth aim skeleton (without exploit)
+EasyLua.Templates.SmoothAim = [[
+-- Smooth Aim Template
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local RunService = game:GetService("RunService")
+local Camera = workspace.CurrentCamera
+
+local AimKey = Enum.KeyCode.E
+local Smoothing = 0.2
+local MaxDist = 100
+
+local function findTarget()
+    local closest, dist = nil, math.huge
+    for _, plr in ipairs(Players:GetPlayers()) do
+        if plr~=LocalPlayer and plr.Character and plr.Character:FindFirstChild("Head") then
+            local headPos = plr.Character.Head.Position
+            local myPos = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and LocalPlayer.Character.HumanoidRootPart.Position
+            if myPos then
+                local d = (headPos - myPos).Magnitude
+                if d < MaxDist and d < dist then
+                    closest, dist = plr, d
                 end
             end
-        },
-        __tostring = function()
-            return "Bridge: " .. addr
-        end,
-        __metatable = "This metatable is protected."
-    }
-
-    getmetatable(Object).__index = mt.__index
-    getmetatable(Object).__newindex = mt.__newindex
-    getmetatable(Object).__tostring = mt.__tostring
-
-    return Object, Generated
+        end
+    end
+    return closest
 end
 
-function API:GetPageContent(Url: string)
-    --[[
-        Sends a GET request to the given Url
-    ]]
+local aiming = false
+-- pressing key to toggle
+game:GetService("UserInputService").InputBegan:Connect(function(i,g)
+    if not g and i.KeyCode == AimKey then aiming = true end
+end)
+game:GetService("UserInputService").InputEnded:Connect(function(i,g)
+    if not g and i.KeyCode == AimKey then aiming = false end
+end)
 
-    assert(typeof(Url) == "string", "Invalid argument #1 to 'GetPageContent', string expected got " .. typeof(Url))
+RunService.RenderStepped:Connect(function()
+    if aiming then
+        local target = findTarget()
+        if target then
+            local head = target.Character.Head
+            local camCFrame = Camera.CFrame
+            local look = CFrame.lookAt(camCFrame.Position, head.Position)
+            Camera.CFrame = camCFrame:Lerp(look, Smoothing)
+        end
+    end
+end)
+]]
 
-    return Request({
-        Url = Url,
-        Method = "GET"
-    })
+-- Generate code from template
+function EasyLua:GetTemplate(name)
+    return self.Templates[name] or error("Template not found: ".. tostring(name))
 end
 
-function API:GetJSON(Url: string)
-    --[[
-        Sends a GET request to the given Url, attempts to parse the response as json and returns:
-        a, b
-        where a is the parsed content (nil if failed), and b is if the script was able to parse the json.
-    ]]
+-- Event System
 
-    assert(typeof(Url) == "string", "Invalid argument #1 to 'GetPageContent', string expected got " .. typeof(Url))
+EasyLua._Events = {}
 
-    local b, a = pcall(HttpService.JSONDecode, HttpService, Request({
-        Url = Url,
-        Method = "GET"
-    }).Body)
-
-
-    return b and a or nil, b
+function EasyLua:On(eventName, callback)
+    assert(type(eventName)=="string", "eventName must be string")
+    assert(type(callback)=="function", "callback must be function")
+    if not self._Events[eventName] then
+        self._Events[eventName] = {}
+    end
+    table.insert(self._Events[eventName], callback)
 end
 
---* File System:
-
-function API:MoveFile(Source: string, To: string, Rename: string | nil, OnlyCopy: boolean | nil)
-    --[[
-        * Moves a file from the path `Source` to the path `To`, renames the file to `Rename` if given, For example:
-        * We have a file in folder1, called passwords.json, we wanna move it to folder2.
-        * You do: API:MoveFile("folder1/passwords.json", "folder2")
-        * If you wanna rename it aswell, for example: passwords.json -> passwords.txt, just do:
-        * API:MoveFile("folder1/passwords.json", "folder2", "passwords.txt")
-        * OnlyCopy: If true, then it does not delete the source file, Used for copying files without deleting them.
-    ]]
-
-    assert(typeof(Source) == "string", "Invalid argument #1 to 'MoveFile', string expected got " .. typeof(Source))
-    assert(typeof(To) == "string", "Invalid argument #2 to 'MoveFile', string expected got " .. typeof(To))
-    assert(isfile(Source), "Invalid source! File " .. tostring(Source) .. " does not exist!")
-
-    local FileName = split(gsub(Source, "/", "\\"), "\\")
-    FileName = Rename or FileName[#FileName]
-
-    writefile(To .. "/" .. FileName, readfile(Source))
-    if not OnlyCopy then delfile(Source) end
+function EasyLua:Fire(eventName, ...)
+    local listeners = self._Events[eventName]
+    if not listeners then return end
+    for _, cb in ipairs(listeners) do
+        task.spawn(cb, ...)
+    end
 end
 
-return API
+-- Example custom event: when HTTP GET returns JSON
+function EasyLua:GetJSONAsync(url)
+    task.spawn(function()
+        local data, err = self:GetJSON(url)
+        self:Fire("JSONReceived", url, data, err)
+    end)
+end
+
+--  usage 
+comment
+--[[
+    -- How to use templates:
+    local code = EasyLua:GetTemplate("ESP")
+    print(code)  -- you can copy this template
+
+    -- How to use config:
+    local cfg = EasyLua:LoadConfig("myconfig.json", { setting1 = true })
+    cfg.setting1 = false
+    EasyLua:SaveConfig("myconfig.json", cfg)
+]]
+
+return EasyLua
