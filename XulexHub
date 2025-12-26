@@ -470,3 +470,66 @@ do
         end
     })
 end
+
+do
+    local FlingTab = GamesSection:Tab({
+        Title = "Fling Things And People",
+        Desc = "Physics & Fling Cheats", 
+        Icon = "solar:wind-bold", -- Represents the "fling" motion
+        IconColor = Color3.fromHex("#00D2FF"), -- Electric Blue
+        IconShape = "Square",
+    })
+
+    local MainSection = FlingTab:Section({
+        Title = "Fling Things And Peoples Script",
+    })
+   
+   FlingTab:Button({
+        Title = "Phoenix Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/kiberblogr-coder/phoenix-hub/main/hub.lua"))()
+        end
+    })
+    
+   FlingTab:Button({
+        Title = "Galatic Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/GalacticScripts/Galactic-Hub/refs/heads/main/WindUI"))()
+        end
+    })
+   
+  FlingTab:Button({
+        Title = "Yuki Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/aaaa45451619/Yuki/refs/heads/145/Yuki%20Hub%20FTAP"))()
+        end
+    })
+    
+    FlingTab:Button({
+        Title = "Cosmic Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://rawscripts.net/raw/Fling-Things-and-People-CosmicHub-new-deobf-code-75177"))()
+        end
+    })
+    
+    FlingTab:Button({
+        Title = "Ftap K Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/makkurokurosukescript/K-hub-beta/refs/heads/main/.gitignore", true))()
+        end
+    })
+    
+    FlingTab:Button({
+        Title = "VenomX Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/lololofffff/VenomX/refs/heads/main/V2"))()
+        end
+    })
+    
+    FlingTab:Button({
+        Title = "Blitz Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/od1oncheat/blitz/refs/heads/main/blizt_crack_%40c_nan0_.lua"))()
+        end
+    })
+end
