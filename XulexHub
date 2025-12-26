@@ -582,3 +582,66 @@ do
         end
     })
 end
+
+do
+    local BreakIn2Tab = GamesSection:Tab({
+        Title = "Break In 2",
+        Desc = "Survival & Gym Cheats", 
+        Icon = "solar:dumbell-bold", -- Perfect for the gym-heavy sequel
+        IconColor = Color3.fromHex("#00FFFF"), -- Bright Cyan
+        IconShape = "Square",
+    })
+
+    local MainSection = BreakIn2Tab:Section({
+        Title = "Break In 2 Scripts",
+    })
+
+    BreakIn2Tab:Button({
+        Title = "IKF Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://pastefy.app/4H5Vb2in/raw"))()
+        end
+    })
+    
+    BreakIn2Tab:Button({
+        Title = "Actual Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Iptxt/ActualHub/refs/heads/main/Loader"))();
+        end
+    })
+    
+    BreakIn2Tab:Button({
+        Title = "Synergy Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://pastebin.com/raw/31AyrfPt"))()
+        end
+    })
+    
+    BreakIn2Tab:Button({
+        Title = "Souls Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://pastebin.com/raw/SPQT6v5J"))()
+        end
+    })
+    
+    BreakIn2Tab:Button({
+        Title = "Bobo Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://rawscripts.net/raw/Break-In-2-(Story)-Bobo-Hub-69947"))()
+        end
+    })
+    
+    BreakIn2Tab:Button({
+        Title = "Hutua Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/hdksakst-ship-it/Hutao-Hub-Omega-X/refs/heads/main/BI2.txt"))()
+        end
+    })
+    
+    BreakIn2Tab:Button({
+        Title = "Get All Roles More..",
+        Callback = function()
+            loadstring(game:HttpGet("https://pastee.dev/r/pr5mH9tc"))()
+        end
+    })
+end
