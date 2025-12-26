@@ -708,3 +708,123 @@ do
          end
     })
 end
+
+do
+    local SaberTab = GamesSection:Tab({
+        Title = "Saber Showdown",
+        Desc = "Combat & Dueling Cheats", 
+        Icon = "solar:sword-bold", 
+        IconColor = Color3.fromHex("#00D2FF"), -- Light Blue (Saber Color)
+        IconShape = "Square",
+    })
+
+    local CombatSection = SaberTab:Section({
+        Title = "Saber Showdown Scripts",
+    })
+
+    SaberTab:Button({
+        Title = "Xemon",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/phareignxd/xemonscripts/refs/heads/main/xemonsabershowdownb"))()
+        end
+    })
+    
+    SaberTab:Button({
+        Title = "Swing Speed And AutoBlock",
+        Callback = function()
+            loadstring(game:HttpGet(('https://pastebin.com/raw/4j7upZSt'),true))()
+        end
+    })
+    
+    SaberTab:Button({
+        Title = "Kill Aura, Godmode",
+        Icon = "solar:magic-stick-bold",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Eeeeeeeeeeerer/Aa/refs/heads/main/saber%20showdown"))()
+        end
+    })
+    
+    SaberTab:Button({
+        Title = "Zephyrix Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/orginpreach/Zephyrix.lol/refs/heads/main/Loader.wifey%3E-%3C"))()
+        end
+    })
+    
+    SaberTab:Button({
+        Title = "Chux Hub",
+        Callback = function()
+             loadstring(game:HttpGet("https://pastefy.app/7N6Cyk9i/raw",true))()
+        end
+    })
+    
+    SaberTab:Button({
+        Title = "Zephyr-W Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Quartzdll/yogurt/refs/heads/main/xd"))()
+        end
+    })
+end
+
+do
+    local TOHTab = GamesSection:Tab({
+        Title = "Tower of Hell",
+        Desc = "Climbing & God Mode", 
+        Icon = "solar:ranking-bold", -- Represents the levels/stairs
+        IconColor = Color3.fromHex("#FF00FF"), -- Signature TOH Pink
+        IconShape = "Square",
+    })
+
+    local MainSection = TOHTab:Section({
+        Title = "Tower Of Hell Scripts",
+    })
+
+    TOHTab:Button({
+        Title = "Anti-cheat Bypass",
+        Callback = function()
+            loadstring(game:HttpGet('https://rawscripts.net/raw/Tower-of-Hell-TOH-Anticheat-bypass-77901'))()
+        end
+    })
+    
+    TOHTab:Button({
+        Title = "Luminary Hub",
+        Callback = function()
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/JakeyJak/scripts/main/TowerOfHell.lua'))();
+        end
+    })
+    
+    TOHTab:Button({
+        Title = "Index hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/65fd2488a69ce49965ad7ef2b7944c59cd73ab6c8aba516b2a2b93c046371a2a/download"))()
+        end
+    })
+    
+    TOHTab:Button({
+        Title = "Poderoso Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://pastebin.com/raw/DnwueK7K"))()
+        end
+    })
+    
+    TOHTab:Button({
+        Title = "Vision Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://pandadevelopment.net/virtual/file/7903e37c198ca203"))()
+        end
+    })
+    
+    TOHTab:Button({
+        Title = "RbCode",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/yyeptech/thebighubs/refs/heads/main/toh.lua"))()
+        end
+    })
+    
+    TOHTab:Button({
+        Title = "Sprin Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/dqvh/dqvh/main/SprinHub",true))()
+        end
+    })
+end
