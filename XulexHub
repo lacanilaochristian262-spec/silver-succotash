@@ -1,0 +1,472 @@
+local WindUI = loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
+
+local Window = WindUI:CreateWindow({
+    Title = "Xulex Hub | " .. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name,
+    Icon = "solar:folder-2-bold-duotone",
+    Author = "by. basic exploiter",
+    Folder = "MySuperHub",
+    
+    Size = UDim2.fromOffset(580, 460),
+    MinSize = Vector2.new(560, 350),
+    MaxSize = Vector2.new(850, 560),
+    Transparent = true,
+    Theme = "Dark",
+    Resizable = true,
+    SideBarWidth = 200,
+    BackgroundImageTransparency = 0.42,
+    HideSearchBar = true,
+    ScrollBarEnabled = false,
+    
+    User = {
+        Enabled = true,
+        Anonymous = true,
+        Callback = function()
+            print("clicked")
+        end,
+    },
+})
+
+-- */  Home Dashboard Tab  /* --
+do
+    local HomeTab = Window:Tab({
+        Title = "Home",
+        Desc = "Main control center", 
+        Icon = "solar:home-2-bold",
+        IconColor = Grey,
+        IconShape = "Square",
+    })
+    
+    local DashboardSection = HomeTab:Section({
+        Title = "Dashboard",
+    })
+
+    -- Statistics or Welcome Group
+    local WelcomeGroup = HomeTab:Group({})
+    
+    WelcomeGroup:Section({
+        Title = "Welcome back, " .. game.Players.LocalPlayer.DisplayName .. "!",
+        Desc = "The script is currently active and running.",
+        TextSize = 18,
+    })
+
+    HomeTab:Space()
+
+    -- Example Dashboard Buttons
+    local QuickActions = HomeTab:Group({
+        Title = "Quick Actions"
+    })
+
+    QuickActions:Button({
+        Title = "Check Connection",
+        Icon = "wifi",
+        Callback = function()
+            WindUI:Notify({
+                Title = "Network Status",
+                Content = "Connection is stable.",
+                Duration = 3
+            })
+        end
+    })
+
+    QuickActions:Space()
+
+    QuickActions:Button({
+        Title = "Copy Owners Profile Link",
+        Icon = "link",
+        Callback = function()
+            setclipboard("https://www.roblox.com/users/8733716932/profile")
+            WindUI:Notify({
+                Title = "Success",
+                Content = "Link copied to clipboard!",
+                Duration = 3
+            })
+        end
+    })
+    
+    HomeTab:Space()
+
+    -- */ Warning Section /* --
+    -- Using a Group with a title to make it look like an Alert Box
+    local WarningGroup = HomeTab:Group({
+        Title = "⚠️ Status Alert"
+    })
+    
+    WarningGroup:Section({
+        Title = "Some scripts are currently patched.",
+        Desc = "Due to recent game updates, certain features may not function. Please wait for the next update.",
+        TextSize = 15,
+        -- We use a subtle red/orange tint if the UI allows, 
+        -- otherwise standard text works perfectly.
+    })
+
+HomeTab:Space({ Columns = 2 })
+
+    -- */ Beta Notice Section /* --
+    local FooterSection = HomeTab:Section({
+        Title = "Notice: This Hub is currently in Beta and will Add More Scripts.",
+        TextSize = 14,
+        TextTransparency = 0.5, -- Makes it look like a footer/subtle note
+        FontWeight = Enum.FontWeight.Medium,
+    })
+end
+
+-- */ Universal/FE Tab /* --
+do
+    local FETab = Window:Tab({
+        Title = "Universal/FE",
+        Desc = "Filtering Enabled scripts", 
+        Icon = "solar:eye-bold",
+        IconColor = Color3.fromHex("#30ff6a"),
+        IconShape = "Square",
+    })
+
+    local FESection = FETab:Section({
+        Title = "FE Scripts List",
+    })
+
+    -- Function to create buttons faster
+    local function AddFeButton(name, url, isAsync)
+        FETab:Button({
+            Title = name,
+            Callback = function()
+                if isAsync then
+                    loadstring(game:HttpGetAsync(url))()
+                else
+                    loadstring(game:HttpGet(url))()
+                end
+            end
+        })
+        FETab:Space() -- Adds consistent spacing between buttons
+    end
+
+    -- Scripts List
+    AddFeButton("Fe Trolling GUI", "https://raw.githubusercontent.com/yofriendfromschool1/Sky-Hub/main/FE%20Trolling%20GUI.luau")
+    AddFeButton("Fe r15/r6 dance", "https://binfor.do.am/Scripts/energize.html")
+    AddFeButton("Fe Invisible (only r15)", "https://pastebin.com/raw/3Rnd9rHf")
+    AddFeButton("Fe Freaky Jerk Off (R6)", "https://pastefy.app/wa3v2Vgm/raw")
+    AddFeButton("Fe Racing Car (R15)", "https://pastefy.app/UqDEIOpO/raw")
+    AddFeButton("FE Fake Lag (R6 & R15)", "https://rawscripts.net/raw/Universal-Script-FAKE-LAG-22520")
+    AddFeButton("Sus Hub", "https://raw.githubusercontent.com/cnPthPiGon/RamDRuomFirirueieiid8didj/refs/heads/main/Fe%20sus%20hub")
+    AddFeButton("Fe Freaky Duck Player (R6)", "https://raw.githubusercontent.com/SpiderScriptRB/Script-SPT/refs/heads/main/Fuck%20Player%20%40SpiderScriptRB.txt")
+    AddFeButton("Fe Super Ring", "https://raw.githubusercontent.com/cnPthPiGon/CM9/refs/heads/main/Super%20Ring%20Part%20V3%20Real%20FE%20Leak%20Finally")
+    AddFeButton("Fe Animation Pack (R15)", "https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/script")
+    AddFeButton("Fe Syntax hub v2", "https://raw.githubusercontent.com/Memeboiyot/SyntaxRebornOfficial/main/SyntaxReborn")
+    AddFeButton("Fe lag switcher", "https://raw.githubusercontent.com/0Ben1/fe/main/Protected%20-%202023-05-28T225112.055.lua.txt")
+    AddFeButton("Fe Player Orbit", "https://raw.githubusercontent.com/0Ben1/fe./main/Orbit%20GUI")
+    AddFeButton("Fe Aura Flying (R6)", "https://rawscripts.net/raw/Universal-Script-R6-Aura-flying-script-73887")
+    AddFeButton("Fe Knuckles Animation Pack (R15)", "https://pastefy.app/x1eMu5jT/raw")
+    AddFeButton("Fe Sonic Exe (R15)", "https://pastefy.app/XCtZsGhP/raw")
+    AddFeButton("Fe Super Sonic (R15)", "https://raw.githubusercontent.com/Azizanzz0/FE-R15-Sonic-X-Super/refs/heads/main/Protected%20SonicXSuper.txt")
+    AddFeButton("Fe Egor (R15)", "https://pastefy.app/A1thNnwQ/raw")
+    AddFeButton("Fe Master Hand (R15)", "https://rawscripts.net/raw/Universal-Script-Fe-master-hand-73639")
+    AddFeButton("Fe Gaze Animator (R6, R15)", "https://raw.githubusercontent.com/Gazer-Ha/Reimagined/refs/heads/main/FE%20Animation%20editor")
+    AddFeButton("Fe Combine Hub", "https://raw.githubusercontent.com/ilikeices/script/refs/heads/main/combine.luau")
+    AddFeButton("Fe Animation Player (R6 and R15)", "https://rawscripts.net/raw/Universal-Script-Erickzzz-Animation-Player-72955")
+    AddFeButton("Fe Script Hub", "https://raw.githubusercontent.com/ilikeices/script/refs/heads/main/hub.luau")
+    AddFeButton("FE TELEKINESIS Brookhaven", "https://rawscripts.net/raw/Universal-Script-FE-TELEKINESIS-Brookhaven-73614")
+    AddFeButton("Another Fe Animation Player", "https://pastebin.com/raw/9R9nG0km")
+    AddFeButton("Fe Flame X Hub", "https://raw.githubusercontent.com/ilikeices/script/refs/heads/main/flame.luau")
+    AddFeButton("Universal Hairy Dance (R6)", "https://rawscripts.net/raw/Universal-Script-Universal-Hairy-Dance-R6-72879")
+    AddFeButton("Fe Gras Hub", "https://raw.githubusercontent.com/ilikeices/script/refs/heads/main/grasshub.luau")
+    AddFeButton("Fe Clovr (R6)", "https://rawscripts.net/raw/UP-Just-a-baseplate.-fe-clovr-v2-72051")
+    AddFeButton("Fe Achromatix (R6)", "https://raw.githubusercontent.com/ilikeices/script/refs/heads/main/achromatix.luau")
+    AddFeButton("Fe Super Girl (PC ONLY)", "https://rawscripts.net/raw/Universal-Script-FE-SUPER-GIRL-V1-FOR-PC-73127")
+    AddFeButton("Fe Zero Hub", "https://raw.githubusercontent.com/ilikeices/script/refs/heads/main/zero.luau")
+    AddFeButton("Fe Universial Emote (R15)", "https://rawscripts.net/raw/Universal-Script-FE-Emotes-Universal-Emotes-Script-61891")
+    AddFeButton("Slicer Fe V6", "https://raw.githubusercontent.com/Ahma174/Slicer/refs/heads/main/Slicer%20Fe%20V6")
+    AddFeButton("Fe Flinger Script", "https://rscripts.net/raw/fe-flinger-gui-works-anywhere_1756291955889_SwfaGHMWsT.txt")
+    AddFeButton("Fe Trolling Player Animations", "https://raw.githubusercontent.com/3LD4D0/FE-TROLLING-PLAYER-R6-R15/6eff8792afed57458d5114478b453a6f6bce5799/Fe%20trolling%20Player%20R6%20AND%20R15")
+    AddFeButton("Fe Dash (R6)", "https://rscripts.net/raw/fe-dash-script_1751990037091_xRxB6haarF.txt")
+    AddFeButton("Fe StrawberryCMD", "https://raw.githubusercontent.com/C-Dr1ve/Strawberry/refs/heads/main/Current_Version.lua", true)
+    AddFeButton("Fe SCP-096 (R15)", "https://pastefy.app/YsJgITXR/raw")
+    AddFeButton("Fe Saitama (R6)", "https://pastebin.com/raw/5K1jpZs6")
+    AddFeButton("Fe Rizz Trip (R6)", "https://raw.githubusercontent.com/Rawbr10/Roblox-Scripts/refs/heads/main/0%20Graviy%20Trip%20Universal")
+    AddFeButton("Another Emote Player (R15)", "https://raw.githubusercontent.com/Gi7331/scripts/main/Emote.lua", true)
+    AddFeButton("Fe Swamp Monster Hub (R6)", "https://pastefy.app/2tC7nRAK/raw")
+    AddFeButton("Fe Hamster Ball V2", "https://raw.githubusercontent.com/KaterHub-Inc/scripts/refs/heads/main/unofficial-Projects/FEHamsterBall.lua")
+    AddFeButton("Another Fe Invisible script (R15)", "https://rawscripts.net/raw/Universal-Script-Invisible-script-20557")
+    AddFeButton("Fe Front Back Hug (R6)", "https://raw.githubusercontent.com/ExploitFin/Animations/refs/heads/main/Front%20and%20Back%20Hug%20Tool")
+    AddFeButton("Fe Animation Chopper (R15)", "https://raw.githubusercontent.com/Gazer-Ha/Gaze-stuff/refs/heads/main/I%20cant%20script%20theres%20no%20loadstring")
+    AddFeButton("Fe Tiger Hub", "https://raw.githubusercontent.com/balintTheDevX/Tiger-X-V3/main/Tiger%20X%20V3.5%20Fixed")
+    AddFeButton("Fe Bang People (R6)", "https://pastebin.com/raw/SvVYqTh6")
+    AddFeButton("Fe Sus GUI (R6)", "https://rscripts.net/raw/sus-fe-script_1761628761303_2eJ1ZJeOzY.txt")
+    AddFeButton("Brookhaven Fe Fat Body", "https://rscripts.net/raw/brookhaven-fe-fat_1753743801272_TeHJKGxQQ9.txt")
+    AddFeButton("Fe Freeze Player", "https://rscripts.net/raw/fe-universal-freezelock-player_1747215628539_yh1D6V0OfH.txt")
+    AddFeButton("Fe Troll GUI (Pizza Place)", "https://raw.githubusercontent.com/blueEa1532/thechosenone/refs/heads/main/trollpizzagui", true)
+    AddFeButton("Fe Universal Telekinesis", "https://raw.githubusercontent.com/skibicumrocket/piss-monster/refs/heads/main/telekines.txt")
+    AddFeButton("Another Fe Hub", "https://raw.githubusercontent.com/Scriptking12333/15Scripts-/refs/heads/main/script14%2060%2B%20Games%20Hub")
+    AddFeButton("Fe Roaring Knight (R15)", "https://pastebin.com/raw/KwrZn2RN")
+    AddFeButton("Fe Hub", "https://pastebin.com/raw/gGB65rMr")
+    AddFeButton("QuirkyCmd", "https://gist.github.com/someunknowndude/38cecea5be9d75cb743eac8b1eaf6758/raw")
+    AddFeButton("Fe Draw Chat", "https://raw.githubusercontent.com/ocfi/_/refs/heads/main/a")
+    AddFeButton("Fe Copy Avatar", "https://raw.githubusercontent.com/GhostPlayer352/Test4/refs/heads/main/Copy%20Avatar")
+    AddFeButton("Fe Possessed (R15)", "https://pastebin.com/raw/C2ixw5i9")
+    AddFeButton("Fe Ragdoll V2 (R15)", "https://raw.githubusercontent.com/shakk-code/fe-ragdoll-script/refs/heads/main/script.lua")
+    AddFeButton("Fe Cat (R15)", "https://pastebin.com/raw/Y1MkBRn3")
+    AddFeButton("Fe Grab Npc (R6)", "https://raw.githubusercontent.com/GUI-Offical/FileTest/refs/heads/main/Grab%20R6.txt")
+    AddFeButton("Fe Hacker Chat V2", "https://pastebin.com/raw/a9iK0EH1")
+    AddFeButton("Fe Animation Hub (R6)", "https://raw.githubusercontent.com/Fsploit/FeAnimationHub/refs/heads/main/Hub.lua")
+    AddFeButton("Fe Invincible Fly (R6)", "https://pastebin.com/raw/XyR6izYv")
+    AddFeButton("Fe Punch Npc (R6)", "https://raw.githubusercontent.com/shakk-code/fe-punch-script/refs/heads/main/script.lua")
+    AddFeButton("Fe Dog (R6)", "https://pastebin.com/raw/WyqDmp0t")
+    AddFeButton("Fe Part Control V2", "https://raw.githubusercontent.com/v0c0n1337/scripts/refs/heads/main/Unachored_parts_controller_v2.lua.txt")
+    AddFeButton("Fe Seraphic Blade (R6)", "https://pastefy.app/59mJGQGe/raw")
+    AddFeButton("Fe Grab Part (R6)", "https://pastebin.com/raw/Da2RAkmA")
+    AddFeButton("Fe Animation GUI (R6)", "https://github.com/Sinister-Scripts/Roblox-Exploits/raw/refs/heads/main/FE-Animation-GUI-R6")
+    AddFeButton("Fe Shadow The Hedgehog (R15)", "https://pastefy.app/0QSkiaHL/raw")
+    AddFeButton("Fe Project Chaos (R15)", "https://pastefy.app/Dehgx9cq/raw")
+    AddFeButton("Fe Npc Controller (R6)", "https://pastebin.com/raw/dacXGb2W")
+    AddFeButton("Fe Blackhole Ability V2", "https://pastefy.app/PU6VWuJk/raw")
+    AddFeButton("Fe Skybox (Brookhaven)", "https://rawscripts.net/raw/Brookhaven-RP-Skybox-Brookhaven-61921")
+    AddFeButton("Fe Inverse Gravity", "https://pastebin.com/raw/96XzjEiK")
+    AddFeButton("Fe Driving Car (R6)", "https://rawscripts.net/raw/Universal-Script-FE-Driving-Car-77845")
+    AddFeButton("Fe Goku Black (CHATGPT)", "https://rawscripts.net/raw/Brookhaven-RP-FE-goku-black-by-ghost-77677")
+    AddFeButton("Fe Supergirl V1.0 (R15)", "https://rawscripts.net/raw/Brookhaven-RP-FE-goku-black-by-ghost-77677")
+end
+
+local GamesSection = Window:Section({
+    Title = "Games",
+})
+
+do
+    local ShawarmaTab = GamesSection:Tab({
+    Title = "Shawarma Kiosk",
+    Icon = "solar:shop-bold", -- This represents the Kiosk/Stand
+    IconColor = Color3.fromHex("#FFA500"), -- A nice food-vendor orange
+    IconShape = "Square",
+})
+
+    ShawarmaTab:Section({ Title = "Shawarma Kiosk Scripts" })
+
+    ShawarmaTab:Button({
+        Title = "xlex Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/zzxzsss/zxz/refs/heads/main/main.lua"))()
+        end
+    })
+    
+    ShawarmaTab:Button({
+        Title = "ExploitingIsFun Hub",
+        Callback = function()
+            loadstring(game:HttpGet('https://api.rubis.app/v2/scrap/wBNEkpigM0J1y5lV/raw', true))()
+        end
+    })
+    
+    ShawarmaTab:Button({
+        Title = "Lumin Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/8124ae03c01b342073e76f1bb561d2e9.lua"))()
+        end
+    })
+    
+    ShawarmaTab:Button({
+        Title = "Neox Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/hassanxzayn-lua/NEOXHUBMAIN/refs/heads/main/loader", true))()
+        end
+    })
+    
+    ShawarmaTab:Button({
+        Title = "Nexora Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/venoxcc/universalscripts/refs/heads/main/nexora/loader.lua",true))()
+        end
+    })
+end
+
+do
+    local WalkOrDieTab = GamesSection:Tab({
+        Title = "Walk or Die",
+        Desc = "Don't stop moving!", 
+        Icon = "solar:running-bold", 
+        IconColor = Color3.fromHex("#FF3131"), -- Danger Red
+        IconShape = "Square",
+    })
+
+    local MainSection = WalkOrDieTab:Section({
+        Title = "Walk Or Die Scripts",
+    })
+
+    WalkOrDieTab:Button({
+        Title = "Unknown Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/yuanshenqdon/Script/refs/heads/main/%F0%9F%A5%BE%20Walk%20or%20Die.lua"))()
+        end
+    })
+    
+    WalkOrDieTab:Button({
+        Title = "Inf Stamina And More",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/EnesKam21/walkordie/refs/heads/main/walkordie.txt"))() 
+        end
+    })
+end
+
+do
+    local PrisonTab = GamesSection:Tab({
+        Title = "Prison Life",
+        Desc = "Escape or Enforce", 
+        Icon = "solar:lock-password-bold", -- Classic prison theme
+        IconColor = Color3.fromHex("#A9A9A9"), -- Steel Grey
+        IconShape = "Square",
+    })
+
+    local MainSection = PrisonTab:Section({
+        Title = "Prison Life Scripts",
+    })
+
+    PrisonTab:Button({
+        Title = "Index Hub",
+        Icon = "solar:exit-bold",
+        Callback = function()
+            loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/65fd2488a69ce49965ad7ef2b7944c59cd73ab6c8aba516b2a2b93c046371a2a/download"))()
+        end
+    })
+    
+    PrisonTab:Button({
+        Title = "Algol Hub",
+        Icon = "solar:exit-bold",
+        Callback = function()
+            loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/efb94b481fda09570ca08bf6afd786557ccf4402a3dac17d0085f38f9f50328f/download"))()
+        end
+    })
+    
+    PrisonTab:Button({
+        Title = "Nexora Hub",
+        Icon = "solar:exit-bold",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/venoxcc/universalscripts/refs/heads/main/nexora/loader.lua",true))()
+        end
+    })
+    
+    PrisonTab:Button({
+        Title = "Kill All, Arrest All.",
+        Icon = "solar:exit-bold",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/BaconBloxYT/ExploitzHub-Games.lua/refs/heads/main/loader.lua"))()
+        end
+    })
+    
+    PrisonTab:Button({
+        Title = "PLH",
+        Icon = "solar:exit-bold",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/SheScript/lifen/refs/heads/main/girlscissor.lua"))()
+        end
+    })
+    
+    PrisonTab:Button({
+        Title = "Nexo Hub",
+        Icon = "solar:exit-bold",
+        Callback = function()
+            loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/b759443a2145ad4f76963763072b7a12713a655b5e8b28c1fa8106448c38934b/download"))()
+        end
+    })
+end 
+
+do
+    local MM2Tab = GamesSection:Tab({
+        Title = "Murder Mystery 2",
+        Desc = "Sheriff & Murderer Cheats", 
+        Icon = "solar:shield-star-bold", -- Represents the badge/rank
+        IconColor = Color3.fromHex("#FFD700"), -- Gold/Yellow
+        IconShape = "Square",
+    })
+
+    local MainSection = MM2Tab:Section({
+        Title = "MM2 Scripts",
+    })
+
+    MM2Tab:Button({
+        Title = "Elvis Hub v2",
+        Callback = function()
+            loadstring(game:HttpGet('https://pastefy.app/epxXhxHn/raw'))()
+        end
+    })
+    
+    MM2Tab:Button({
+        Title = "Elvis Hub v2",
+        Callback = function()
+            loadstring(game:HttpGet('https://pastefy.app/epxXhxHn/raw'))()
+        end
+    })
+    
+    MM2Tab:Button({
+        Title = "Sorin Hub v2",
+        Callback = function()
+            loadstring(game:HttpGet('https://pastefy.app/epxXhxHn/raw'))()
+        end
+    })
+    
+    MM2Tab:Button({
+        Title = "CID Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/C1DX99/C1D-Library/refs/heads/main/Main.Lua"))()
+        end
+    })
+end
+
+
+-- */ 99 Nights in the Forest Tab /* --
+do
+    local ForestTab = GamesSection:Tab({
+        Title = "99 Nights In The Forest",
+        Desc = "Forest Survival Cheats", 
+        Icon = "solar:moon-stars-bold", -- Represents the night survival
+        IconColor = Color3.fromHex("#A5C9FF"), -- Soft Moonlight Blue
+        IconShape = "Square",
+    })
+
+    local SurvivalSection = ForestTab:Section({
+        Title = "99 Nights In The Forest Scripts",
+    })
+
+    ForestTab:Button({
+        Title = "Foxname Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/caomod2077/Script/refs/heads/main/FoxnameHub.lua"))()
+        end
+    })
+    
+    ForestTab:Button({
+        Title = "VoidWare Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/VapeVoidware/VW-Add/main/loader.lua", true))()
+        end
+    })
+    
+    ForestTab:Button({
+        Title = "Forge Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/d5ed1fbd4301b1d18d75153c5b47181d.lua"))()
+        end
+    })
+    
+    ForestTab:Button({
+        Title = "Overflow",
+        Callback = function()
+            loadstring(game:HttpGet("https://overflow.cx/loader.html"))()
+        end
+    })
+    
+    ForestTab:Button({
+        Title = "Project Infinity X",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Muhammad6196/Project-Infinity-X/refs/heads/main/main.lua"))()
+        end
+    })
+    
+    ForestTab:Button({
+        Title = "TRXSH Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/TRXSH-DMN/TRXSHHUB/refs/heads/main/main.lua"))()
+        end
+    })
+    
+    ForestTab:Button({
+        Title = "Solara Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://pastefy.app/Wfe784Xn/raw"))()
+        end
+    })
+end
