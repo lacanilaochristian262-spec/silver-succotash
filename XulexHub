@@ -574,4 +574,11 @@ do
             loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptjame/test2/refs/heads/main/bladeball.lua"))()
         end
     })
+
+    BladeBallTab:Button({
+        Title = "Argon Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/AgentX771/ArgonHubX/main/Loader.lua"))()
+        end
+    })
 end
