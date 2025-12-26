@@ -656,7 +656,7 @@ do
     })
 
     local MainSection = BlindShotTab:Section({
-        Title = "Combat Features",
+        Title = "Blind Shot Scripts",
     })
 
    BlindShotTab:Button({
