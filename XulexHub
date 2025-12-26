@@ -645,3 +645,66 @@ do
         end
     })
 end
+
+do
+    local BlindShotTab = GamesSection:Tab({
+        Title = "Blind Shot",
+        Desc = "Vision & Aim Utilities", 
+        Icon = "solar:eye-closed-bold", -- Represents the "Blind" aspect
+        IconColor = Color3.fromHex("#D3D3D3"), -- Foggy Light Grey
+        IconShape = "Square",
+    })
+
+    local MainSection = BlindShotTab:Section({
+        Title = "Combat Features",
+    })
+
+   BlindShotTab:Button({
+        Title = "ESP Player and more..",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/ASEPTOS/Blinded-Hubs/a16ccc94b3b8b15eb1bdcd2ecbd7bf1f6f0d27e7/Blind"))()
+         end
+    })
+    
+    BlindShotTab:Button({
+        Title = "Foxname Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/afkar-gg/sc/refs/heads/main/blindshot", true))();
+         end
+    })
+    
+    BlindShotTab:Button({
+        Title = "Anonymous Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/HitAMassy/AnonymousHub/refs/heads/main/loader.lua"))()
+         end
+    })
+    
+    BlindShotTab:Button({
+        Title = "Synergy Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://pastebin.com/raw/vjB2N8PE"))()
+         end
+    })
+    
+    BlindShotTab:Button({
+        Title = "Polar X",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/inkdupe/scripts/refs/heads/main/blindshot.luau", true))()
+         end
+    })
+    
+    BlindShotTab:Button({
+        Title = "Arki",
+        Callback = function()
+            loadstring(game:HttpGet("https://rawscripts.net/raw/Blind-Shot-Auto-Farm-Cash-77291"))()
+         end
+    })
+    
+    BlindShotTab:Button({
+        Title = "Blind v1",
+        Callback = function()
+            loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/87cc0bbc35d973c937f7c3cd93a7b5b022af8dc99d41a16ebc6ddbcac7519806/download"))()
+         end
+    })
+end
