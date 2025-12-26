@@ -533,3 +533,45 @@ do
         end
     })
 end
+
+do
+    local BladeBallTab = GamesSection:Tab({
+        Title = "Blade Ball",
+        Desc = "Auto Parry & Abilities", 
+        Icon = "solar:sword-bold", -- The classic "Blade" icon
+        IconColor = Color3.fromHex("#A020F0"), -- Neon Purple
+        IconShape = "Square",
+    })
+
+    local CombatSection = BladeBallTab:Section({
+        Title = "Blade Ball Scripts",
+    })
+
+    BladeBallTab:Button({
+        Title = "Project Stark Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://rawscripts.net/raw/Blade-Ball-Project-Stark-Free-Hub-59919"))()
+        end
+    })
+    
+    BladeBallTab:Button({
+        Title = "Solara Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://pastefy.app/Wfe784Xn/raw"))()
+        end
+    })
+    
+    BladeBallTab:Button({
+        Title = "Loom Hub (has blade ball tab)",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/WhatsHisIdentifierr/NoKey/refs/heads/main/CrackLoader",true))()
+        end
+    })
+    
+    BladeBallTab:Button({
+        Title = "ScriptJames",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptjame/test2/refs/heads/main/bladeball.lua"))()
+        end
+    })
+end
