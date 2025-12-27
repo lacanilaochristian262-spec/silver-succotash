@@ -1971,3 +1971,88 @@ do
     AddScript("Zekrom Hub X", "https://raw.githubusercontent.com/ahmadsgamer2/Zekrom-Hub-X/main/Zekrom-Hub-X-exe")
     AddScript("Zen Hub", "https://raw.githubusercontent.com/ZenHubTheBest/Main/main/Loader")
 end
+
+do
+    local CreditsTab = Window:Tab({
+        Title = "Credits",
+        Desc = "The people behind the project",
+        Icon = "solar:users-group-two-rounded-bold",
+        IconColor = Purple,
+        IconShape = "Square",
+        Border = true,
+    })
+
+    local DevSection = CreditsTab:Section({
+        Title = "Core",
+    })
+
+    local DevGroup = CreditsTab:Group({})
+
+    DevGroup:Button({
+        Title = "Basicexploiter",
+        Desc = "Script Owner, And Script Fetcher",
+        Icon = "solar:star-bold",
+        Color = Color3.fromHex("#30FF6A"),
+        Callback = function()
+            setclipboard("https://github.com/Footagesus")
+            WindUI:Notify({
+                Title = "Link Copied",
+                Content = "Github link copied to clipboard!",
+                Duration = 3
+            })
+        end
+    })
+
+    -- Interactive Credits List
+    local ContribSection = CreditsTab:Section({
+        Title = "Contributors & Special Thanks",
+        Box = true,
+        BoxBorder = true,
+        Opened = true,
+    })
+
+    ContribSection:Section({
+        Title = "• WindUI Community - Beta Testing\n• Lucide/Solar - Icon Libraries\n• You - For using this script!",
+        TextSize = 16,
+        TextTransparency = 0.4,
+        FontWeight = Enum.FontWeight.Medium,
+    })
+
+    CreditsTab:Space({ Columns = 2 })
+
+    -- Social Links Section
+    local SocialSection = CreditsTab:Section({
+        Title = "Join our Community",
+    })
+
+    local SocialGroup = CreditsTab:Group({})
+
+    SocialGroup:Button({
+        Title = "Scriptblox Account",
+        Icon = "solar:chat-round-dots-bold",
+        Color = Color3.fromHex("#5865F2"), -- Discord Blue
+        Callback = function()
+            setclipboard("https://scriptblox.com/u/BasicExploiter")
+        end
+    })
+
+    SocialGroup:Space()
+
+    SocialGroup:Button({
+        Title = "YouTube Channel",
+        Icon = "github",
+        Color = Color3.fromHex("#1c1c1c"),
+        Callback = function()
+            setclipboard("https://www.youtube.com/@basicexploiter")
+        end
+    })
+
+    -- Subtle Version Footer
+    CreditsTab:Space({ Columns = 3 })
+    CreditsTab:Section({
+        Title = "Made with ❤️ using WindUI Framework",
+        TextSize = 12,
+        TextTransparency = 0.6,
+        Justify = "Center"
+    })
+end
