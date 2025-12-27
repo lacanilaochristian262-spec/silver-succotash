@@ -1677,101 +1677,192 @@ do
 end
 
 do
-    local DaHoodTab = GamesSection:Tab({
-        Title = "Da Hood",
-        Desc = "Combat & Money Mods", 
-        Icon = "solar:danger-bold", -- Represents the skull/hood theme
-        IconColor = Color3.fromHex("#FF0000"), -- Aggressive Red
-        IconShape = "Square",
-    })
+local DaHoodTab = Window:Tab({
+    Title = "Da Hood",
+    Desc = "Combat & Money Mods",
+    Icon = "solar:danger-bold",
+    IconColor = Color3.fromHex("#FF0000"),
+})
 
-    local CombatSection = DaHoodTab:Section({
+local CombatSection = DaHoodTab:Section({
         Title = "DaHood Scripts",
     })
 
--- Helper function to make the code shorter
-local function Load(url)
-    loadstring(game:HttpGet(url))()
-end
-
--- Individual Buttons
-DaHoodTab:AddButton({
+-- Individual Buttons using your specific syntax
+DaHoodTab:Button({
     Title = "DaHub V3",
-    Desc = "Loads DaHub V3 script",
     Callback = function()
         getgenv().Toggle = "v"
         getgenv().Intro = false
-        Load("https://raw.githubusercontent.com/NoUGotbannedlol/DaHubV3/main/Launch")
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/NoUGotbannedlol/DaHubV3/main/Launch"))()
     end
 })
 
-DaHoodTab:AddButton({
+DaHoodTab:Button({
     Title = "DragonWare",
-    Callback = function() Load("https://paste-drop.com/raw/ZAE0Or8c3y") end
+    Callback = function()
+        loadstring(game:HttpGet("https://paste-drop.com/raw/ZAE0Or8c3y"))()
+    end
 })
 
-DaHoodTab:AddButton({
+DaHoodTab:Button({
     Title = "Enclosed",
-    Callback = function() Load("https://raw.githubusercontent.com/dylannpro123/enclosed/main/enclosed") end
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/dylannpro123/enclosed/main/enclosed"))()
+    end
 })
 
-DaHoodTab:AddButton({
+DaHoodTab:Button({
     Title = "Focus",
-    Callback = function() Load("https://pastebin.com/raw/5BkTV67C") end
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/5BkTV67C"))()
+    end
 })
 
-DaHoodTab:AddButton({
+DaHoodTab:Button({
     Title = "Lanxility",
-    Callback = function() Load("https://raw.githubusercontent.com/cjdjmj/new-ui-godmode/main/README.md") end
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/cjdjmj/new-ui-godmode/main/README.md"))()
+    end
 })
 
-DaHoodTab:AddButton({
+DaHoodTab:Button({
     Title = "OxHub",
-    Callback = function() Load("https://raw.githubusercontent.com/patrickhackplus/oxhub/main/kidsinmybasement") end
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/patrickhackplus/oxhub/main/kidsinmybasement"))()
+    end
 })
 
-DaHoodTab:AddButton({
+DaHoodTab:Button({
     Title = "Pluto",
-    Callback = function() Load("https://raw.githubusercontent.com/Scrvpter/Pluto/Lua/Loader.Lua") end
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Scrvpter/Pluto/Lua/Loader.Lua"))()
+    end
 })
 
-DaHoodTab:AddButton({
+DaHoodTab:Button({
     Title = "RayX",
-    Callback = function() Load("https://raw.githubusercontent.com/SpaceYes/Lua/Main/DaHood.Lua") end
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/SpaceYes/Lua/Main/DaHood.Lua"))()
+    end
 })
 
-DaHoodTab:AddButton({
+DaHoodTab:Button({
     Title = "Serenity",
-    Callback = function() Load("https://raw.githubusercontent.com/cypherdh/Serenity/main/script") end
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/cypherdh/Serenity/main/script"))()
+    end
 })
 
-DaHoodTab:AddButton({
+DaHoodTab:Button({
     Title = "Space Hub",
-    Callback = function() Load("https://raw.githubusercontent.com/Lucasfin000/SpaceHub/main/SpaceHubLoader") end
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Lucasfin000/SpaceHub/main/SpaceHubLoader"))()
+    end
 })
 
-DaHoodTab:AddButton({
+DaHoodTab:Button({
     Title = "Space X",
-    Callback = function() Load("https://raw.githubusercontent.com/spacexrandom/Lua/main/DaHood") end
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/spacexrandom/Lua/main/DaHood"))()
+    end
 })
 
-DaHoodTab:AddButton({
+DaHoodTab:Button({
     Title = "SwagMode",
-    Callback = function() Load("https://raw.githubusercontent.com/lerkermer/lua-projects/master/SwagModeV002") end
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/lerkermer/lua-projects/master/SwagModeV002"))()
+    end
 })
 
-DaHoodTab:AddButton({
+DaHoodTab:Button({
     Title = "Vortex",
-    Callback = function() Load("https://raw.githubusercontent.com/ImagineProUser/vortexdahood/main/vortex") end
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ImagineProUser/vortexdahood/main/vortex"))()
+    end
 })
 
-DaHoodTab:AddButton({
+DaHoodTab:Button({
     Title = "Zapped",
-    Callback = function() Load("https://ekso.gq/raw/relases/zapped.lua") end
+    Callback = function()
+        loadstring(game:HttpGet("https://ekso.gq/raw/relases/zapped.lua"))()
+    end
 })
 
-DaHoodTab:AddButton({
+DaHoodTab:Button({
     Title = "Zinc Hub",
-    Callback = function() Load("https://raw.githubusercontent.com/Zinzs/luascripting/main/canyoutellitsadahoodscriptornot.lua") end
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Zinzs/luascripting/main/canyoutellitsadahoodscriptornot.lua"))()
+    end
+})
+end
+
+do
+local AnimeTab = Window:Tab({
+    Title = "Anime Champions",
+    Desc = "Simulator Scripts",
+    Icon = "solar:star-bold",
+    IconColor = Color3.fromHex("#FFD700"),
+})
+
+local AnimeSection = DaHoodTab:Section({
+        Title = "Anime Champions Scripts",
+    })
+
+AnimeTab:Button({
+    Title = "Banana Hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/diepedyt/bui/main/temporynewkeysystem.lua"))()
+    end
+})
+
+AnimeTab:Button({
+    Title = "Fazium Hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ZaRdoOx/Fazium-files/main/Loader"))()
+    end
+})
+
+AnimeTab:Button({
+    Title = "HarPy",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/xShadow1234/HarPy/main/HarPy_loader.lua"))()
+    end
+})
+
+AnimeTab:Button({
+    Title = "Krzysztof Hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/KrzysztofHub/script/main/loader.lua"))()
+    end
+})
+
+AnimeTab:Button({
+    Title = "Muimi Hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/bunny42312/script/main/acs"))()
+    end
+})
+
+AnimeTab:Button({
+    Title = "Perfectus Hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/PerfectusMim/Perfectus-Hub/main/perfectus-hub"))()
+    end
+})
+
+AnimeTab:Button({
+    Title = "Sky Hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/SKOIXLL/RIVERHUB-SKYHUB/main/WL.lua"))()
+    end
+})
+
+AnimeTab:Button({
+    Title = "Yuto Hub",
+    Callback = function()
+        if not game:IsLoaded() then game.Loaded:Wait() end
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Binintrozza/yutv2e/main/ACS"))()
+    end
 })
 end
