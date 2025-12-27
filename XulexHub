@@ -4,7 +4,7 @@ local Window = WindUI:CreateWindow({
     Title = "Xulex Hub | " .. game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name,
     Icon = "solar:folder-2-bold-duotone",
     Author = "by. basic exploiter",
-    Folder = "MySuperHub",
+    Folder = "Data",
     
     Size = UDim2.fromOffset(580, 460),
     MinSize = Vector2.new(560, 350),
@@ -402,6 +402,13 @@ do
         Title = "CID Hub",
         Callback = function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/C1DX99/C1D-Library/refs/heads/main/Main.Lua"))()
+        end
+    })
+
+    MM2Tab:Button({
+        Title = "Vertex Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/WhatsHisIdentifierr/NoKey/refs/heads/main/VertexPremiumCrackMM2",true))()
         end
     })
 end
