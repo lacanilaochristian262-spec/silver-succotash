@@ -1283,7 +1283,7 @@ do
 end
 
 do
-    local B-BallTab = GamesSection:Tab({
+    local BBallTab = GamesSection:Tab({
         Title = "BasketBall Legends",
         Desc = "Court & Shooting Cheats", 
         Icon = "solar:basketball-bold", -- The standard basketball icon
@@ -1291,32 +1291,32 @@ do
         IconShape = "Square",
     })
 
-    local MainSection = B-BallTab:Section({
+    local MainSection = BBallTab:Section({
         Title = "Basketball Legends Script",
     })
 
-    B-BallTab:Button({
+    BBallTab:Button({
         Title = "Flash Hub",
         Callback = function()
             loadstring(game:HttpGet('https://rawscripts.net/raw/Universal-Script-Basketball-Legends-FlashHub-by-me-73652'))()
         end
     })
     
-    B-BallTab:Button({
+    BBallTab:Button({
         Title = "Kali Hub",
         Callback = function()
             loadstring(game:HttpGet('https://rawscripts.net/raw/Basketball-Legends-Kali-Hub-LEAKED-SOURCE-73270'))()
         end
     })
     
-    B-BallTab:Button({
+    BBallTab:Button({
         Title = "Benicio Hub",
         Callback = function()
             loadstring(game:HttpGet("https://pandadevelopment.net/virtual/file/7903e37c198ca203"))()
         end
     })
     
-    B-BallTab:Button({
+    BBallTab:Button({
         Title = "Ambrion",
         Callback = function()
             loadstring(game:HttpGet('https://raw.githubusercontent.com/VisioneducationOfLuaCoding/basketball-legends/refs/heads/main/ambrion%20v1'))()
