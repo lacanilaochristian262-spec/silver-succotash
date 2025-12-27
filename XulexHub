@@ -904,3 +904,87 @@ end)
         end
     })
 end
+
+do
+    local BlockTalesTab = GamesSection:Tab({
+        Title = "Block Tales",
+        Desc = "RPG & Battle Utilities", 
+        Icon = "solar:document-text-bold", -- Represents the "Tales" aspect
+        IconColor = Color3.fromHex("#FFCA28"), -- RPG Gold/Yellow
+        IconShape = "Square",
+    })
+
+    local BattleSection = BlockTalesTab:Section({
+        Title = "Block Tales Script",
+    })
+
+    BlockTalesTab:Button({
+        Title = "The Only Block tales script you need",
+        Icon = "solar:fire-bold",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/TexRBLX/Roblox-stuff/refs/heads/main/block%20tales/revamp.lua"))()
+        end
+    })
+    
+do
+    local ViolenceTab = GamesSection:Tab({
+        Title = "Violence District",
+        Desc = "Urban Combat Utilities", 
+        Icon = "solar:danger-bold", -- The skull/danger icon
+        IconColor = Color3.fromHex("#FF0000"), -- Aggressive Red
+        IconShape = "Square",
+    })
+
+    local CombatSection = ViolenceTab:Section({
+        Title = "Violence District Scripts",
+    })
+
+    ViolenceTab:Button({
+        Title = "TexRBLX",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/TexRBLX/Roblox-stuff/refs/heads/main/violence-district/vd_rewrite.lua"))()
+        end
+    })
+    
+    ViolenceTab:Button({
+        Title = "Solarae",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/skidma/solarae/refs/heads/main/vd.lua"))()
+        end
+    })
+    
+    ViolenceTab:Button({
+        Title = "Felix Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/3f338bbae70dd5c843637cfe0c37a8cfa3c37243db88772cfb112e71f1ac0848/download"))()
+        end
+    })
+    
+    ViolenceTab:Button({
+        Title = "NeXaHub",
+        Callback = function()
+            loadstring(game:HttpGet("https://pastebin.com/raw/dVPsPpCd"))()
+        end
+    })
+    
+    ViolenceTab:Button({
+        Title = "Gold's Easy Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://rawscripts.net/raw/Violence-District-Open-Source-fully-auto-generator-script-with-working-ESP-65319"))()
+        end
+    })
+    
+    ViolenceTab:Button({
+        Title = "Azure Hub (MOBILE)",
+        Callback = function()
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/azurelw/azurehub/refs/heads/main/loader.lua'))()
+        end
+    })
+    
+    ViolenceTab:Button({
+        Title = "Azure Hub (PC)",
+        Callback = function()
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/azurelw/azurehub/refs/heads/main/loader.lua'))()
+        end
+    })
+end
