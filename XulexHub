@@ -1865,3 +1865,109 @@ AnimeTab:Button({
     end
 })
 end
+
+do
+    local BloxTab = GamesSection:Tab({
+        Title = "Blox Fruits",
+        Desc = "All Blox Fruit Hubs",
+        Icon = "solar:ghost-bold",
+        IconColor = Color3.fromHex("#FF4500"),
+        IconShape = "Square",
+    })
+
+    local BloxSection = BloxTab:Section({
+        Title = "Blox Fruit Scripts",
+    })
+
+    -- Function to make adding buttons cleaner and safer
+    local function AddScript(name, url)
+        BloxSection:Button({
+            Title = name,
+            Callback = function()
+                loadstring(game:HttpGet(url))()
+            end
+        })
+    end
+
+    -- MANUAL FIXES FOR SPECIAL SCRIPTS
+    BloxSection:Button({
+        Title = "Apple Hub", 
+        Callback = function() 
+            getgenv().NgonNguScript = true
+            if not game:IsLoaded() then game.Loaded:Wait() end
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/ImTienNguyenZ/AppleHub/main/LoaderBF"))() 
+        end
+    })
+
+    -- MASS BUTTON ADDITION
+    AddScript("Alchemy Hub", "https://alchemyhub.xyz/v2")
+    AddScript("Atomic Hub", "https://raw.githubusercontent.com/ArceusXHub/atomic-hub/main/atomic-hub.lua")
+    AddScript("Beo Hub", "https://raw.githubusercontent.com/Bestxemchua/agagagaq/main/BeoHUB/BeoHUB.lua")
+    AddScript("Blck Hub", "https://raw.githubusercontent.com/1f0yt/community/main/BLCK")
+    AddScript("BlackTrap", "https://blacktrap.org/blacktrap/users/checkpoint/Auth.txt")
+    AddScript("Bull Hub", "https://raw.githubusercontent.com/Fiend1sh/FiendMain/main/BullMain")
+    AddScript("CFrame Hub", "https://raw.githubusercontent.com/Steveee11/Scripts/main/Blox%20Fruits%20OP%20Script")
+    AddScript("Cokka Hub", "https://codeberg.org/CokkaHub/Loadstring/raw/branch/main/CokkaHub.lua")
+    AddScript("Destiny Hub", "https://raw.githubusercontent.com/KudoCon/DestinyHub/main/DestinyKey")
+    AddScript("Domadic Hub", "https://raw.githubusercontent.com/Domadicoof/Domadicoof/main/Domadichub/NottoGay/Start.ranscript")
+    AddScript("Dynamic Hub", "https://Dynamic.xcodehoster.com/loader.lua")
+    AddScript("Ez Beli (Chest Farm)", "https://raw.githubusercontent.com/NickelHUBB/SonicTuru/main/ChestFarmOp")
+    AddScript("Fao Hub", "https://raw.githubusercontent.com/PNguyen0199/Script/main/Fai-Fao.lua")
+    AddScript("Flare Hub", "https://raw.githubusercontent.com/1f0yt/community/master/flares")
+    AddScript("FTS V2", "https://raw.githubusercontent.com/Tulam2000/FTS-HUB/main/FTS%20x%20Hub")
+    AddScript("Gringo Hub", "https://github.com/LeVanNhatIT/GringoHub/raw/main/Loading_Ui/Loading")
+    AddScript("Halo X Hub", "https://raw.githubusercontent.com/HALOxHUB/ScriptLoader/main/Loader.lua")
+    AddScript("Hoho Hub", "https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI")
+    AddScript("Hung Hub", "https://raw.githubusercontent.com/hungquan99/HungHub/main/Loading")
+    AddScript("JJTx Hub", "https://raw.githubusercontent.com/JJTChannel/JJTxHUB/main/Re-come.lua")
+    AddScript("Law Hub", "https://raw.githubusercontent.com/BestScriptEverr/Main-/main/Law%20hub")
+    AddScript("Madox Hub", "https://raw.githubusercontent.com/Fiend1sh/FiendMain/main/MadoxHubKey")
+    AddScript("Makima Hub", "https://raw.githubusercontent.com/Piwwy0909/MakimaRemake/main/Cumback.Makima")
+    AddScript("Makori Hub", "https://raw.githubusercontent.com/Domadicoof/Domadicoof/main/NewHubX.txt")
+    AddScript("Master Hub", "https://raw.githubusercontent.com/onepicesenpai/onepicesenpai/main/onichanokaka")
+    AddScript("Mama Hub", "https://raw.githubusercontent.com/MAMAhub1/Mmahub/main/README.md")
+    AddScript("MeMayBeo", "https://raw.githubusercontent.com/ZPSXHUB/Z/main/MeMayBeo")
+    AddScript("Modz Hub", "https://raw.githubusercontent.com/1f0yt/community/master/modz")
+    AddScript("MTriet Hub", "https://raw.githubusercontent.com/Minhtriettt/Free-Script/main/MTriet-Hub.lua")
+    AddScript("Mukuro Hub", "https://raw.githubusercontent.com/xDepressionx/Free-Script/main/BloxFruit.lua")
+    AddScript("Nexuz Hub", "https://raw.githubusercontent.com/NexuzHub/Main-/main/Script")
+    AddScript("Neva Hub", "https://raw.githubusercontent.com/VEZ2/NEVAHUB/main/2")
+    AddScript("Night Hub", "https://raw.githubusercontent.com/NIGHTHUBONTOP/Main/main/NIGHT-HUB")
+    AddScript("Omg Hub", "https://raw.githubusercontent.com/Omgshit/Scripts/main/MainLoader.lua")
+    AddScript("Pado Hub", "https://raw.githubusercontent.com/REWzaKunGz1/premium/main/PadoHub")
+    AddScript("Raito Hub", "https://raw.githubusercontent.com/Efe0626/RaitoHub/main/Script")
+    AddScript("Rblx Hub", "https://paste.xyzo.space/rblxhub/all.lua")
+    AddScript("REDzHUB", "https://raw.githubusercontent.com/REDzHUB/BloxFruits/main/redz9999")
+    AddScript("Sagi Hub", "https://raw.githubusercontent.com/BestScriptEverr/Main-/main/SagiHub")
+    AddScript("Saki Hub", "https://sharetext.me/raw/u3if6m3hgr")
+    AddScript("Sara Hub", "https://raw.githubusercontent.com/SaraSenpai/bloxfruist/main/Sarahub")
+    AddScript("Secret Hub", "https://raw.githubusercontent.com/FtsHub/main/main/SecretHub.Lua")
+    AddScript("Snow Hub", "https://raw.githubusercontent.com/ZPSXHUB/Hub/main/SnowHub-BloxFruit")
+    AddScript("Sonic Hub", "https://raw.githubusercontent.com/NickelHUBB/SonicTuru/main/Protected-25.lua")
+    AddScript("Speed Hub X", "https://raw.githubusercontent.com/ahmadsgamer2/Script--Game/main/Script%20Game")
+    AddScript("Switch Hub", "https://raw.githubusercontent.com/Augustzyzx/UraniumX/main/src_.lua.txt")
+    AddScript("T7GFY", "https://raw.githubusercontent.com/minded102/dokinbog/main/README.md")
+    AddScript("Tawan Hub", "https://raw.githubusercontent.com/kill55547/TAWAN_HUB/main/TAWANxHUB_V2.lua.txt")
+    AddScript("TNG Hub", "https://raw.githubusercontent.com/tngaming123/TNGHub/main/AutoRaceV4.lua")
+    AddScript("Thunder Z", "https://raw.githubusercontent.com/ThunderZ-05/HUB/main/Mobile-Loader")
+    AddScript("Turbo Hub", "https://gitlab.com/turbohubz/loader.xyz/loader/-/raw/main/TurboHub-Loader")
+    AddScript("Uranium Hub", "https://raw.githubusercontent.com/Augustzyzx/UraniumMobile/main/UraniumKak.lua")
+    
+    BloxSection:Button({
+        Title = "Vector Hub", 
+        Callback = function() 
+            _G.Mode = "English" 
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Tuxoz/VectorHub/main/MBPC"))() 
+        end
+    })
+
+    AddScript("Void Hub", "https://raw.githubusercontent.com/Efe0626/VoidHub/main/Script")
+    AddScript("Winnable Hub", "https://raw.githubusercontent.com/xlostpexz/tyuiop/Fps/Loading.lua")
+    AddScript("Xenon Hub", "https://raw.githubusercontent.com/Larinax999/leak/main/khemtitgamerHUB-BF.lua")
+    AddScript("Zamex Hub", "https://raw.githubusercontent.com/Sixnumz/ZamexMobile/main/Zamex_Mobile.lua")
+    AddScript("Zaque Hub", "https://raw.githubusercontent.com/Mei2232/ZaqueHub/main/Zaque%20Hub")
+    AddScript("Zaque Hub (PC)", "https://raw.githubusercontent.com/ZaqueHub/BloxFruitPC/main/Protected.lua")
+    AddScript("Zee Hub", "https://zKuzy.link/ZeeHub.lua")
+    AddScript("Zekrom Hub X", "https://raw.githubusercontent.com/ahmadsgamer2/Zekrom-Hub-X/main/Zekrom-Hub-X-exe")
+    AddScript("Zen Hub", "https://raw.githubusercontent.com/ZenHubTheBest/Main/main/Loader")
+end
