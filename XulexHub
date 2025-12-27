@@ -1675,3 +1675,103 @@ do
         end
     })
 end
+
+do
+    local DaHoodTab = GamesSection:Tab({
+        Title = "Da Hood",
+        Desc = "Combat & Money Mods", 
+        Icon = "solar:danger-bold", -- Represents the skull/hood theme
+        IconColor = Color3.fromHex("#FF0000"), -- Aggressive Red
+        IconShape = "Square",
+    })
+
+    local CombatSection = DaHoodTab:Section({
+        Title = "DaHood Scripts",
+    })
+
+-- Helper function to make the code shorter
+local function Load(url)
+    loadstring(game:HttpGet(url))()
+end
+
+-- Individual Buttons
+DaHoodTab:AddButton({
+    Title = "DaHub V3",
+    Desc = "Loads DaHub V3 script",
+    Callback = function()
+        getgenv().Toggle = "v"
+        getgenv().Intro = false
+        Load("https://raw.githubusercontent.com/NoUGotbannedlol/DaHubV3/main/Launch")
+    end
+})
+
+DaHoodTab:AddButton({
+    Title = "DragonWare",
+    Callback = function() Load("https://paste-drop.com/raw/ZAE0Or8c3y") end
+})
+
+DaHoodTab:AddButton({
+    Title = "Enclosed",
+    Callback = function() Load("https://raw.githubusercontent.com/dylannpro123/enclosed/main/enclosed") end
+})
+
+DaHoodTab:AddButton({
+    Title = "Focus",
+    Callback = function() Load("https://pastebin.com/raw/5BkTV67C") end
+})
+
+DaHoodTab:AddButton({
+    Title = "Lanxility",
+    Callback = function() Load("https://raw.githubusercontent.com/cjdjmj/new-ui-godmode/main/README.md") end
+})
+
+DaHoodTab:AddButton({
+    Title = "OxHub",
+    Callback = function() Load("https://raw.githubusercontent.com/patrickhackplus/oxhub/main/kidsinmybasement") end
+})
+
+DaHoodTab:AddButton({
+    Title = "Pluto",
+    Callback = function() Load("https://raw.githubusercontent.com/Scrvpter/Pluto/Lua/Loader.Lua") end
+})
+
+DaHoodTab:AddButton({
+    Title = "RayX",
+    Callback = function() Load("https://raw.githubusercontent.com/SpaceYes/Lua/Main/DaHood.Lua") end
+})
+
+DaHoodTab:AddButton({
+    Title = "Serenity",
+    Callback = function() Load("https://raw.githubusercontent.com/cypherdh/Serenity/main/script") end
+})
+
+DaHoodTab:AddButton({
+    Title = "Space Hub",
+    Callback = function() Load("https://raw.githubusercontent.com/Lucasfin000/SpaceHub/main/SpaceHubLoader") end
+})
+
+DaHoodTab:AddButton({
+    Title = "Space X",
+    Callback = function() Load("https://raw.githubusercontent.com/spacexrandom/Lua/main/DaHood") end
+})
+
+DaHoodTab:AddButton({
+    Title = "SwagMode",
+    Callback = function() Load("https://raw.githubusercontent.com/lerkermer/lua-projects/master/SwagModeV002") end
+})
+
+DaHoodTab:AddButton({
+    Title = "Vortex",
+    Callback = function() Load("https://raw.githubusercontent.com/ImagineProUser/vortexdahood/main/vortex") end
+})
+
+DaHoodTab:AddButton({
+    Title = "Zapped",
+    Callback = function() Load("https://ekso.gq/raw/relases/zapped.lua") end
+})
+
+DaHoodTab:AddButton({
+    Title = "Zinc Hub",
+    Callback = function() Load("https://raw.githubusercontent.com/Zinzs/luascripting/main/canyoutellitsadahoodscriptornot.lua") end
+})
+end
