@@ -1629,7 +1629,7 @@ do
     })
 
     local CombatSection = MTab:Section({
-        Title = murder vs Sherrifs duels script",
+        Title = "Murder vs Sherrifs duels script",
     })
 
     MTab:Button({
