@@ -1281,3 +1281,277 @@ do
         end
     })
 end
+
+do
+    local B-BallTab = GamesSection:Tab({
+        Title = "BasketBall Legends",
+        Desc = "Court & Shooting Cheats", 
+        Icon = "solar:basketball-bold", -- The standard basketball icon
+        IconColor = Color3.fromHex("#FF8C00"), -- Classic Basketball Orange
+        IconShape = "Square",
+    })
+
+    local MainSection = B-BallTab:Section({
+        Title = "Basketball Legends Script",
+    })
+
+    B-BallTab:Button({
+        Title = "Flash Hub",
+        Callback = function()
+            loadstring(game:HttpGet('https://rawscripts.net/raw/Universal-Script-Basketball-Legends-FlashHub-by-me-73652'))()
+        end
+    })
+    
+    B-BallTab:Button({
+        Title = "Kali Hub",
+        Callback = function()
+            loadstring(game:HttpGet('https://rawscripts.net/raw/Basketball-Legends-Kali-Hub-LEAKED-SOURCE-73270'))()
+        end
+    })
+    
+    B-BallTab:Button({
+        Title = "Benicio Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://pandadevelopment.net/virtual/file/7903e37c198ca203"))()
+        end
+    })
+    
+    B-BallTab:Button({
+        Title = "Ambrion",
+        Callback = function()
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/VisioneducationOfLuaCoding/basketball-legends/refs/heads/main/ambrion%20v1'))()
+        end
+    })
+end
+
+do
+    local TagTab = GamesSection:Tab({
+        Title = "Tag Game",
+        Desc = "Movement & Parkour", 
+        Icon = "solar:running-bold", -- Perfect for running/chasing
+        IconColor = Color3.fromHex("#33FF77"), -- Neon Runner Green
+        IconShape = "Square",
+    })
+
+    local MainSection = TagTab:Section({
+        Title = "Untitled Tag Game",
+    })
+
+    TagTab:Button({
+        Title = "Ferrari Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://pandadevelopment.net/virtual/file/7903e37c198ca203"))()
+        end
+    })
+    
+    TagTab:Button({
+        Title = "Chaos Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://pandadevelopment.net/virtual/file/7903e37c198ca203"))()
+        end
+    })
+    
+    TagTab:Button({
+        Title = "XVC Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://pastebin.com/raw/37HJ0uK5"))()
+        end
+    })
+end
+
+do
+    local ArtTab = GamesSection:Tab({
+        Title = "Starving Artist",
+        Desc = "Art & Stand Utilities", 
+        Icon = "solar:pen-new-square-bold", -- Represents creating art
+        IconColor = Color3.fromHex("#D033FF"), -- Artistic Purple
+        IconShape = "Square",
+    })
+
+    local MainSection = ArtTab:Section({
+        Title = "Starving Artists",
+    })
+
+    ArtTab:Button({
+        Title = "Auto Draw",
+        Callback = function()
+            loadstring(game:HttpGet("https://pastebin.com/raw/37HJ0uK5"))()
+        end
+    })
+end
+
+do
+    local TSBTab = GamesSection:Tab({
+        Title = "TSB",
+        Desc = "Combat & Dash Utilities", 
+        Icon = "solar:bolt-bold", -- Represents speed and power
+        IconColor = Color3.fromHex("#FF3131"), -- Hero/Villain Red
+        IconShape = "Square",
+    })
+
+    local CombatSection = TSBTab:Section({
+        Title = "The Strongest Battlegrounds script",
+    })
+
+    TSBTab:Button({
+        Title = "Vexon Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/platformdiamond/Moveset/refs/heads/main/Coreshub"))()
+        end
+    })
+    
+    TSBTab:Button({
+        Title = "Side-dash Assist",
+        Callback = function()
+            loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/54d6b993fe3a4c1f5c3e375eba35e5ec.lua"))()
+        end
+    })
+    
+    TSBTab:Button({
+        Title = "Supa Tech",
+        Callback = function()
+            loadstring(game:HttpGet("https://api.getpolsec.com/scripts/hosted/2753546c83053761e44664d36ffe5035d6e20fc8aee1d19f0eb7b933974ae537.lua"))()
+        end
+    })
+    
+    TSBTab:Button({
+        Title = "Down Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://pandadevelopment.net/virtual/file/6b66825b2647d618"))()
+        end
+    })
+    
+    TSBTab:Button({
+        Title = "OP Tech GUI",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/hellattexyss/loader/refs/heads/main/cpshubloader.lua"))()
+        end
+    })
+    
+    TSBTab:Button({
+        Title = "Combat GUI",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/hellattexyss/loader/refs/heads/main/cpshubloader.lua"))()
+        end
+    })
+    
+    TSBTab:Button({
+        Title = "No Anim Omni Directional Punch",
+        Callback = function()
+            --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
+
+local function blockAnimation(character)
+    local humanoid = character:WaitForChild("Humanoid")
+    
+    humanoid.AnimationPlayed:Connect(function(track)
+        if track.Animation.AnimationId == "rbxassetid://13927612951" then
+            track:Stop(0)
+        end
+    end)
+end
+
+if player.Character then
+    blockAnimation(player.Character)
+end
+
+player.CharacterAdded:Connect(blockAnimation)
+        end
+    })
+end
+
+do
+    local JumpTab = GamesSection:Tab({
+        Title = "Jump Showdown",
+        Desc = "Survival & Jump Hacks", 
+        Icon = "solar:running-bold", 
+        IconColor = Color3.fromHex("#00FFFF"), -- Neon Cyan
+        IconShape = "Square",
+    })
+
+    local MainSection = JumpTab:Section({
+        Title = "Jump Showdown Scripts",
+    })
+
+    JumpTab:Button({
+        Title = "Most OP SCRIPT EVER",
+        Icon = "solar:shield-bold",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/solarastuff/sorryjimpee/refs/heads/main/Jumper.lua"))()
+        end
+    })
+end
+
+do
+    local ShooterTab = GamesSection:Tab({
+        Title = "Unnamed Shooter",
+        Desc = "Combat & Visuals", 
+        Icon = "solar:target-bold", -- Represents Aim/Combat
+        IconColor = Color3.fromHex("#FF4B4B"), -- Tactical Red
+        IconShape = "Square",
+    })
+
+    local CombatSection = ShooterTab:Section({
+        Title = "Unnamed Shooter Scripts",
+    })
+
+    ShooterTab:Button({
+        Title = "Rage, Legit Bot",
+        Callback = function()
+            script_key = "PUT KEY HERE"
+loadstring(game:HttpGet("https://raw.githubusercontent.com/cryjngblxxd/scripts/refs/heads/main/unnamed"))()
+        end
+    })
+    
+    ShooterTab:Button({
+        Title = "Skid hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/public-account-7/skidhub/refs/heads/main/loader.lua"))()
+        end
+    })
+    
+        ShooterTab:Button({
+        Title = "Skid hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/public-account-7/skidhub/refs/heads/main/loader.lua"))()
+        end
+    })
+    
+        ShooterTab:Button({
+        Title = "Hitbox Expander",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/public-account-7/skidhub/refs/heads/main/loader.lua"))()
+        end
+    })
+end
+
+do
+    local DigTab = GamesSection:Tab({
+        Title = "Dig to Escape",
+        Desc = "Auto-Dig & Speed Cheats", 
+        Icon = "solar:exit-bold", -- Represents the goal of escaping
+        IconColor = Color3.fromHex("#C19A6B"), -- Earthy Brown/Tan
+        IconShape = "Square",
+    })
+
+    local MainSection = DigTab:Section({
+        Title = "Dig To Escape Scripts",
+    })
+
+    DigTab:Button({
+        Title = "Get Items",
+        Callback = function()
+            loadstring(game:HttpGet("https://rawscripts.net/raw/Dig-to-Escape-Open-Source-73842"))()
+        end
+    })
+    
+    DigTab:Button({
+        Title = "Instant Escape",
+        Callback = function()
+            loadstring(game:HttpGet("https://github.com/contateste8/DigToEscape/raw/refs/heads/main/obfuscated_script-1766626551058.lua.txt"))()
+        end
+    })
+end
