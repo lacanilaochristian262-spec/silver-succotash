@@ -1677,7 +1677,7 @@ do
 end
 
 do
-local DaHoodTab = Window:Tab({
+local DaHoodTab = GamesSection:Tab({
     Title = "Da Hood",
     Desc = "Combat & Money Mods",
     Icon = "solar:danger-bold",
@@ -1688,7 +1688,6 @@ local CombatSection = DaHoodTab:Section({
         Title = "DaHood Scripts",
     })
 
--- Individual Buttons using your specific syntax
 DaHoodTab:Button({
     Title = "DaHub V3",
     Callback = function()
@@ -1798,14 +1797,14 @@ DaHoodTab:Button({
 end
 
 do
-local AnimeTab = Window:Tab({
+local AnimeTab = GamesSection:Tab({
     Title = "Anime Champions",
     Desc = "Simulator Scripts",
     Icon = "solar:star-bold",
     IconColor = Color3.fromHex("#FFD700"),
 })
 
-local AnimeSection = DaHoodTab:Section({
+local AnimeSection = AnimeTab:Section({
         Title = "Anime Champions Scripts",
     })
 
