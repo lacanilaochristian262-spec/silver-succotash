@@ -1066,3 +1066,147 @@ do
         end
     })
 end
+
+do
+    local DoorsTab = GamesSection:Tab({
+        Title = "DOORS",
+        Desc = "Hotel Survival Utilities", 
+        Icon = "solar:eye-bold", -- The most iconic symbol for DOORS
+        IconColor = Color3.fromHex("#A020F0"), -- Entity Purple
+        IconShape = "Square",
+    })
+
+    local MainSection = DoorsTab:Section({
+        Title = "DOORS Scripts",
+    })
+
+    DoorsTab:Button({
+        Title = "Zescript",
+        Callback = function()
+            loadstring(game:HttpGet("https://rawscripts.net/raw/DOORS-ZeScript-67246",true))()
+        end
+    })
+    
+    DoorsTab:Button({
+        Title = "MYLF Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/MYLFHUB/Anti-obfuscate/refs/heads/main/mylfhubdoors.lua"))()
+        end
+    })
+    
+    DoorsTab:Button({
+        Title = "Null fire",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/TeamNullFire/NullFire/main/loader.lua"))()
+        end
+    })
+    
+    DoorsTab:Button({
+        Title = "Gory Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Gorinch/DoorsGoryHub/main/Main.lua"))()
+        end
+    })
+    
+    DoorsTab:Button({
+        Title = "Rapture Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/RaptureOfc/Rapture-Doors-Released-1.0-New/refs/heads/main/Doors%20Release%20Rapture"))()
+        end
+    })
+end
+
+do
+    local SpellingBeeTab = GamesSection:Tab({
+        Title = "Spelling Bee",
+        Desc = "Auto-Solve & Vocabulary", 
+        Icon = "solar:pen-new-square-bold", 
+        IconColor = Color3.fromHex("#FFD700"), -- Bee Yellow/Gold
+        IconShape = "Square",
+    })
+
+    local CheatSection = SpellingBeeTab:Section({
+        Title = "Spelling Bee Script",
+    })
+
+    SpellingBeeTab:Button({
+        Title = "The only spelling bee script you need",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/PreppyHub/PreppyHub/refs/heads/main/PreppyHub"))()
+        end
+    })
+end
+
+do
+    local DuelingTab = GamesSection:Tab({
+        Title = "Dueling Grounds",
+        Desc = "Combat & Parry Utilities", 
+        Icon = "solar:sword-bold", 
+        IconColor = Color3.fromHex("#BCC6CC"), -- Steel/Silver
+        IconShape = "Square",
+    })
+
+    local MainSection = DuelingTab:Section({
+        Title = "Dueling Grounds Script",
+    })
+
+    DuelingTab:Button({
+        Title = "Auto Parry And More ",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Artem1093z/ScriptsGo/refs/heads/main/DuelingGrounds"))()
+        end
+    })
+    
+    DuelingTab:Button({
+        Title = "Auto parry 1",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/NysaDanielle/loader/refs/heads/main/auth"))()
+        end
+    })
+end
+
+do
+    local BoxingTab = GamesSection:Tab({
+        Title = "Untitled Boxing game",
+        Desc = "Auto-Counter & Reach", 
+        Icon = "solar:bolt-bold", -- Represents punch power/speed
+        IconColor = Color3.fromHex("#FF4500"), -- Punchy Orange-Red
+        IconShape = "Square",
+    })
+
+    local MainSection = BoxingTab:Section({
+        Title = "Untitled Boxing Game Scripts",
+    })
+
+    BoxingTab:Button({
+        Title = "Auto Dodge Anti Feint",
+        Icon = "solar:maximize-bold",
+        Callback = function()
+            loadstring(game:HttpGet("https://pastebin.com/raw/RNhiXimN"))()
+        end
+    })
+    
+    BoxingTab:Button({
+        Title = "Mirage Hub",
+        Icon = "solar:maximize-bold",
+        Callback = function()
+            loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/e84aac149960efeddc83453e4a856d9d.lua"))()
+        end
+    })
+    
+    BoxingTab:Button({
+        Title = "Pathos.cc",
+        Icon = "solar:maximize-bold",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/th3-osc/Pathos/main/Pathos%20Key%20System.lua"))()
+        end
+    })
+    
+    BoxingTab:Button({
+        Title = "Beanz Hub ",
+        Icon = "solar:maximize-bold",
+        Callback = function()
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/ScpGuest666/Random-Roblox-script/main/Roblox%20un*led%20boxing%20game%20auto%20dodge%20script'))()
+        end
+    })
+end
