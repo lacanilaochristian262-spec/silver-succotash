@@ -49,6 +49,7 @@ do
         TextSize = 18,
     })
 
+    HomeTab:Select()
     HomeTab:Space()
 
     -- Example Dashboard Buttons
