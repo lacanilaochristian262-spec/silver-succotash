@@ -1555,3 +1555,123 @@ do
         end
     })
 end
+
+do
+    local ArsenalTab = GamesSection:Tab({
+        Title = "Arsenal",
+        Desc = "Combat & Weaponry", 
+        Icon = "solar:target-bold", -- Represents Aim and Crosshairs
+        IconColor = Color3.fromHex("#FFD700"), -- Arsenal Gold
+        IconShape = "Square",
+    })
+
+    local CombatSection = ArsenalTab:Section({
+        Title = "Arsenal Script",
+    })
+
+    ArsenalTab:Button({
+        Title = "Unbound Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/samerop/unbound-hub/main/unbound-hub.lua"))()
+        end
+    })
+    
+    ArsenalTab:Button({
+        Title = "Index Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://api.junkie-development.de/api/v1/luascripts/public/65fd2488a69ce49965ad7ef2b7944c59cd73ab6c8aba516b2a2b93c046371a2a/download"))()
+        end
+    })
+    
+    ArsenalTab:Button({
+        Title = "KeyForge Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/nonsenseontop/KeyforgeScripts/refs/heads/main/KeyForgeLoaderV1"))()
+        end
+    })
+end
+
+do
+    local RFTab = GamesSection:Tab({
+        Title = "Rainbow Friends",
+        Desc = "Entity ESP & Survival", 
+        Icon = "solar:ghost-bold", -- Represents the monsters
+        IconColor = Color3.fromHex("#0047AB"), -- "Blue" Entity Color
+        IconShape = "Square",
+    })
+
+    local SurvivalSection = RFTab:Section({
+        Title = "Rainbow Friends Script",
+    })
+
+    RFTab:Button({
+        Title = "Script 1",
+        Callback = function()
+            pcall(loadstring(game:HttpGet('https://raw.githubusercontent.com/zReal-King/Rainbow-Friends/main/Main.lua')))
+        end
+    })
+    
+    RFTab:Button({
+        Title = "Illankytb",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Iliankytb/Iliankytb/main/BestRainbowFriendsTwo"))()
+        end
+    })
+end
+
+do
+    local MTab = GamesSection:Tab({
+        Title = "MvS Duels",
+        Desc = "Combat & ESP Utilities", 
+        Icon = "solar:target-bold", -- Represents the precision of the duel
+        IconColor = Color3.fromHex("#B22222"), -- Firebrick Red
+        IconShape = "Square",
+    })
+
+    local CombatSection = MTab:Section({
+        Title = murder vs Sherrifs duels script",
+    })
+
+    MTab:Button({
+        Title = "The Only Script You need",
+        Icon = "solar:eye-bold",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/scripture2025/FlashHub/refs/heads/main/MurdersVsSherrifs"))()
+        end
+    })
+end
+
+do
+    local RakeTab = GamesSection:Tab({
+        Title = "The Rake: Remastered",
+        Desc = "Survival & Detection", 
+        Icon = "solar:ghost-bold", -- Represents the Rake entity
+        IconColor = Color3.fromHex("#8B0000"), -- Dark Blood Red
+        IconShape = "Square",
+    })
+
+    local SurvivalSection = RakeTab:Section({
+        Title = "The Rake Remastered Script",
+    })
+
+    RakeTab:Button({
+        Title = "Tempt",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/kxtsuishimfr/The-Rake-Remastered/main/src/Remastered/Tempt.lua", true))()
+        end
+    })
+    
+    RakeTab:Button({
+        Title = "Script 2",
+        Callback = function()
+            loadstring(game:HttpGet("https://pandadevelopment.net/virtual/file/fe4e9960f31ae0db"))()
+        end
+    })
+    
+    RakeTab:Button({
+        Title = "Desire.cc",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Desireccc/The-Rake/refs/heads/main/Desire.cc"))()
+        end
+    })
+end
