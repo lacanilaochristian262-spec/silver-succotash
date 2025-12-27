@@ -1210,3 +1210,73 @@ do
         end
     })
 end
+
+do
+    local SlapTab = GamesSection:Tab({
+        Title = "Slap",
+        Desc = "Auto-Slap & Glove Cheats", 
+        Icon = "solar:hand-stars-bold", -- Represents the "Slap" impact
+        IconColor = Color3.fromHex("#FFD700"), -- Glove Gold
+        IconShape = "Square",
+    })
+
+    local MainSection = SlapTab:Section({
+        Title = "Slap Scripts",
+    })
+
+    SlapTab:Button({
+        Title = "Auto Dodge And Inf Feints",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/NysaDanielle/loader/refs/heads/main/auth"))()
+        end
+    })
+    
+    SlapTab:Button({
+        Title = "Perfect Auto Dodge",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/lnjectlon/SLAP-AUTO-DODGE-HIT/refs/heads/main/slap"))()
+        end
+    })
+    
+    SlapTab:Button({
+        Title = "AutoDodge 3",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/NysaDanielle/loader/refs/heads/main/auth"))()
+        end
+    })
+end
+
+do
+    local SlapBattlesTab = GamesSection:Tab({
+        Title = "Slap Battles",
+        Desc = "Glove Hacks & Farm", 
+        Icon = "solar:hand-stars-bold", -- The classic "Slap" icon
+        IconColor = Color3.fromHex("#FFA500"), -- Vibrant Orange
+        IconShape = "Square",
+    })
+
+    local MainSection = SlapBattlesTab:Section({
+        Title = "Slap Battles Scripts",
+    })
+
+    SlapBattlesTab:Button({
+        Title = "VinQ Hub",
+        Callback = function()
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/vinqDevelops/erwwefqweqewqwe/refs/heads/main/lol.txt'))()
+        end
+    })
+    
+    SlapBattlesTab:Button({
+        Title = "SB Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Scripter-Coder/Scripter-Coder/refs/heads/main/Slap%20Battles/Slap%20Battles%20Hub%20OP%20Script"))()
+        end
+    })
+    
+    SlapBattlesTab:Button({
+        Title = "L Hub",
+        Callback = function()
+            loadstring(game:HttpGet(('https://raw.githubusercontent.com/landerca/SlapBattlesLhub/refs/heads/main/sb'),true))()
+        end
+    })
+end
