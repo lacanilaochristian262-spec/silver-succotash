@@ -989,3 +989,73 @@ do
         end
     })
 end
+
+do
+    local FishItTab = GamesSection:Tab({
+        Title = "Fish It",
+        Desc = "Auto-Fish & Luck Cheats", 
+        Icon = "solar:water-bold", -- Represents the fishing environment
+        IconColor = Color3.fromHex("#0077BE"), -- Ocean Blue
+        IconShape = "Square",
+    })
+
+    local FishingSection = FishItTab:Section({
+        Title = "Fish It Scripts",
+    })
+
+    FishItTab:Button({
+        Title = "Pepe Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/GiftStein1/pepehook-loader/refs/heads/main/loader.lua"))()
+        end
+    })
+    
+    FishItTab:Button({
+        Title = "Maroon Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://anlica.icu/loader.lua"))()
+        end
+    })
+    
+    FishItTab:Button({
+        Title = "Bacon Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/vinh129150/hack/refs/heads/main/BaconHub.lua"))()
+        end
+    })
+    
+    FishItTab:Button({
+        Title = "Quix Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/WhatsHisIdentifier/NoKey/refs/heads/main/QuixHubPrem",true))()
+        end
+    })
+    
+    FishItTab:Button({
+        Title = "Rock Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/WhatsHisIdentifierr/NoKey/refs/heads/main/RockHubV1.0.3",true))()
+        end
+    })
+    
+    FishItTab:Button({
+        Title = "Vinz Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/WhatsHisIdentifierr/NoKey/refs/heads/main/VinzPREMLOADER",true))()
+        end
+    })
+    
+    FishItTab:Button({
+        Title = "GLUA",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/WhatsHisIdentifierr/NoKey/refs/heads/main/GLUAPremFishIt",true))()
+        end
+    })
+    
+    FishItTab:Button({
+        Title = "Souls Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/WhatsHisIdentifierr/NoKey/refs/heads/main/SoulsHubFishIt",true))()
+        end
+    })
+end
