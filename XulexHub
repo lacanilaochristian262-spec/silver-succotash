@@ -828,3 +828,79 @@ do
         end
     })
 end
+
+do
+    local TrollTab = GamesSection:Tab({
+        Title = "Troll Tower",
+        Desc = "Be a Menace", 
+        Icon = "solar:ghost-bold", -- Represents the Trolling aspect
+        IconColor = Color3.fromHex("#30FF6A"), -- Troll Green
+        IconShape = "Square",
+    })
+
+    local MainSection = TrollTab:Section({
+        Title = "Trolling Is A Pinning Tower 2 Script",
+    })
+
+    TrollTab:Button({
+        Title = "Jump To Active Troll Button",
+        Callback = function()
+            loadstring(game:HttpGet("https://pastebin.com/raw/Yfi9WRBi"))()
+        end
+    })
+    
+    TrollTab:Button({
+        Title = "Yuki Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/aaaa45451619/Yuki/refs/heads/145/Troll%20Tower%202%20Free"))()
+        end
+    })
+    
+    TrollTab:Button({
+        Title = "Troll GUI",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/DurianBruhRBLX/Durian-Hub/refs/heads/main/Troll-GUI"))()
+        end
+    })
+    
+    TrollTab:Button({
+        Title = "Remove Group Wall",
+        Callback = function()
+            --[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+local function bypassGroupDoor()
+    for _, v in ipairs(workspace:GetDescendants()) do
+        if v.Name == "Group" then
+            pcall(function()
+                v.CanCollide = false
+                v.Transparency = 1
+            end)
+        end
+    end
+end
+
+bypassGroupDoor()
+
+if queue_on_teleport then
+    queue_on_teleport([[
+        loadstring(game:HttpGet("https://pastefy.app/HLv7RtA9/raw", true))()
+    ]])
+end
+
+task.spawn(function()
+    while true do
+        bypassGroupDoor()
+        task.wait(5)
+    end
+end)
+        end
+    })
+    
+    TrollTab:Button({
+        Title = "Dexter",
+        Callback = function()
+            loadstring(game:HttpGet("https://pastefy.app/BsKFPOaz/raw"))()
+        end
+    })
+end
